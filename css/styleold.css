@@ -1,0 +1,782 @@
+/* Reset & base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: "Solway", serif;
+  background: #fff;
+  color: #111;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ============================================
+   HEADER / NAVBAR (Frame 89:1574)
+   Dimensions: 1728×138px
+   ============================================ */
+.header {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1920px;
+  height: 138px;
+  background: #ffffff;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.logo {
+  position: absolute;
+  left: 43px;
+  top: 32px;
+  width: 193px;
+  height: 73px;
+  object-fit: contain;
+}
+
+.language-selector {
+  position: absolute;
+  right: 92px; /* 1728px - 1540px - 96px */
+  top: 62px;
+  width: 96px;
+  height: 43px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.language-selector img {
+  width: 54px;
+  height: 28.2px;
+  object-fit: contain;
+}
+
+/* ============================================
+   ACTION BUTTONS (Frame 30 & 31)
+   Positioned absolutely per Figma
+   ============================================ */
+.btn-signin {
+  position: absolute;
+  left: 1150px;
+  top: 30px;
+  width: 316px;
+  height: 69px;
+  background: #e15814;
+  color: #ffffff;
+  border: none;
+  border-radius: 45px;
+  font-family: "Solway", serif;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.2em;
+  text-align: center;
+  padding: 0;
+  cursor: pointer;
+  z-index: 999;
+  max-width: calc(100% - 20px);
+}
+
+.btn-join {
+  position: absolute;
+  left: 1500px;
+  top: 30px;
+  width: 238px;
+  height: 69px;
+  background: #ffffff;
+  color: #e15814;
+  border: 2px solid #e15814;
+  border-radius: 45px;
+  font-family: "Solway", serif;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.2em;
+  text-align: center;
+  padding: 0;
+  cursor: pointer;
+  z-index: 999;
+  max-width: calc(100% - 20px);
+}
+
+/* Hero */
+.hero-section {
+  height: 1077px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top: 138px; /* header height */
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.15));
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  padding: 0px 70px;
+  margin-left: 0;
+}
+
+.hero-title {
+  color: #fff;
+  font-weight: 700;
+  font-size: 128px;
+  line-height: 0.95;
+  text-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+  margin: 0;
+  max-width: 700px;
+}
+
+/* features: two-column flow */
+.feature-1,
+.feature-2,
+.feature-3 {
+  padding: 56px 0;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  align-items: center;
+  gap: 40px;
+}
+.feature-1 .feature-left h2,
+.feature-2 .feature-right h2,
+.feature-3 .feature-right h2 {
+  color: #e15814;
+  font-size: 48px;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+.feature-1-text,
+.feature-2-text,
+.feature-3-text {
+  font-size: 18px;
+  color: #222;
+}
+.feature-1-img,
+.feature-2-img,
+.feature-3-img {
+  width: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+/* adjust columns order for feature-2 and 3 so layout mirrors screenshot */
+.feature-2 {
+  grid-template-columns: 420px 1fr;
+}
+.feature-3 {
+  grid-template-columns: 420px 1fr;
+}
+
+/* Testimonials (cards row) */
+.testimonials {
+  background: #fff9f5;
+  padding: 80px 24px;
+  display: flex;
+  gap: 28px;
+  justify-content: center;
+  flex-wrap: wrap;
+  border-top: 1px solid #c5c5c5;
+  margin-top: 40px;
+  max-width: 1920px;
+}
+.testimonial-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 28px 24px;
+  max-width: 500px;
+  position: relative;
+  box-shadow: 0 8px 24px rgba(225, 88, 20, 0.15);
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  border: 2px solid rgba(225, 88, 20, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 10px 10px 10px rgba(225, 88, 20, 0.25);
+}
+.testimonial-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex: 0 0 64px;
+  border: 3px solid #e15814;
+}
+.testimonial-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.testimonial-name {
+  font-weight: 700;
+  font-size: 18px;
+  color: #e15814;
+}
+.testimonial-role {
+  font-size: 14px;
+  color: #666;
+  margin-top: 4px;
+}
+.testimonial-text {
+  font-size: 14px;
+  color: #333;
+  margin-top: 12px;
+  line-height: 1.5;
+}
+
+/* ============================================
+   FOOTER (Frame 89:745)
+   Dimensions: 1729×451px
+   Background: #E15814
+   ============================================ */
+/* ============================================
+   FOOTER — CENTERED + RESPONSIVE
+   ============================================ */
+.footer {
+  width: 100%;
+  background: #e15814;
+  color: #fff;
+  padding: 48px 16px 24px; /* ruang atas & samping */
+}
+
+/* 3 kolom rapih dan benar2 di tengah page */
+.footer-columns-wrapper {
+  max-width: 1240px; /* batas lebar konten */
+  margin: 0 auto; /* center */
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 48px; /* jarak antar kolom */
+  align-items: start;
+}
+
+/* reset posisi absolut lama */
+.footer-column {
+  position: static;
+}
+
+/* tipografi */
+.footer-column h3 {
+  font-family: "Solway", serif;
+  font-weight: 700;
+  font-size: clamp(22px, 2.2vw, 28px);
+  line-height: 1.2;
+  margin: 0 0 16px;
+}
+.footer-column a {
+  display: block;
+  font-family: "Solway", serif;
+  font-weight: 400;
+  font-size: clamp(16px, 1.7vw, 20px);
+  line-height: 1.4;
+  color: #fff;
+  text-decoration: none;
+  margin: 10px 0;
+  opacity: 0.95;
+}
+.footer-column a:hover {
+  text-decoration: underline;
+  opacity: 1;
+}
+
+/* social icons berada tepat di tengah */
+.footer-social {
+  max-width: 1240px;
+  margin: 28px auto 0; /* center + jarak dari kolom */
+  display: flex;
+  justify-content: center; /* tengah horizontal */
+  align-items: center;
+  gap: 28px; /* jarak antar icon */
+}
+.social-icon {
+  width: 56px;
+  height: 56px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+.social-icon:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+.footer-social svg {
+  display: block;
+  width: 28px;
+  height: 28px;
+}
+
+/* garis & copyright ikut center container */
+.footer-divider {
+  max-width: 1240px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.45);
+  margin: 28px auto 0; /* center */
+}
+.footer-copyright {
+  text-align: center;
+  font-family: "Solway", serif;
+  font-weight: 400;
+  font-size: 16px;
+  margin-top: 14px;
+  opacity: 0.95;
+}
+
+/* ========= RESPONSIVE ========= */
+@media (max-width: 900px) {
+  .footer-columns-wrapper {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
+  }
+}
+@media (max-width: 560px) {
+  .footer-columns-wrapper {
+    grid-template-columns: 1fr;
+    text-align: left; /* bisa ganti 'center' kalau mau */
+    gap: 24px;
+  }
+  .social-icon {
+    width: 52px;
+    height: 52px;
+  }
+  .footer-social {
+    gap: 22px;
+  }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN - NAVBAR & FOOTER
+   ============================================ */
+
+/* Large Desktop (1400px - 1728px) */
+@media (max-width: 1728px) {
+  .header {
+    max-width: 100%;
+    padding: 0 2.5%;
+  }
+
+  .logo {
+    left: 2.5%;
+  }
+
+  .language-selector {
+    right: 2.5%;
+  }
+
+  .btn-signin {
+    left: 51%;
+  }
+
+  .btn-join {
+    left: 75%;
+  }
+
+  .footer {
+    max-width: 100%;
+  }
+
+  .footer-supplier-support {
+    left: 4%;
+  }
+
+  .footer-about-us {
+    left: 40%;
+  }
+
+  .footer-legal {
+    left: 75%;
+  }
+
+  .footer-social {
+    left: 38%;
+  }
+
+  .footer-divider {
+    left: 4%;
+    width: 92%;
+  }
+}
+
+/* Desktop (1200px - 1400px) */
+@media (max-width: 1400px) {
+  .btn-signin {
+    width: 260px;
+    font-size: 20px;
+    height: 60px;
+    left: 60%;
+  }
+
+  .btn-join {
+    width: 200px;
+    font-size: 20px;
+    height: 60px;
+    left: 80%;
+  }
+
+  .hero-title {
+    font-size: 100px;
+  }
+
+  .footer-column h3 {
+    font-size: 28px;
+  }
+
+  .footer-column a {
+    font-size: 20px;
+  }
+}
+
+/* Tablet (768px - 1200px) */
+@media (max-width: 1200px) {
+  .header {
+    height: 120px;
+    padding: 20px;
+  }
+
+  .logo {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    width: 120px;
+    height: 45px;
+  }
+
+  .language-selector {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
+
+  .btn-signin {
+    position: absolute;
+    left: 20px;
+    top: 80px;
+    width: auto;
+    min-width: 200px;
+    font-size: 16px;
+    height: 50px;
+    padding: 0 20px;
+  }
+
+  .btn-join {
+    position: absolute;
+    left: 240px;
+    top: 80px;
+    width: auto;
+    min-width: 150px;
+    font-size: 16px;
+    height: 50px;
+    padding: 0 20px;
+  }
+
+  .hero-section {
+    margin-top: 120px;
+  }
+
+  .hero-inner {
+    margin-left: 50px;
+  }
+
+  .hero-title {
+    font-size: 80px;
+  }
+
+  .footer-columns-wrapper {
+    flex-direction: column;
+    gap: 40px;
+    padding: 40px 20px;
+  }
+
+  .footer-column {
+    position: relative;
+    left: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    margin-bottom: 30px;
+  }
+
+  .footer-social {
+    position: relative;
+    left: auto !important;
+    top: auto !important;
+    margin: 40px auto;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .footer-divider {
+    position: relative;
+    left: auto !important;
+    top: auto !important;
+    width: 90%;
+    margin: 30px auto;
+  }
+
+  .footer-copyright {
+    position: relative;
+    left: auto !important;
+    top: auto !important;
+    transform: none;
+    margin: 20px auto;
+  }
+
+  .social-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .social-icon svg {
+    width: 30px !important;
+    height: 30px !important;
+  }
+}
+
+/* Mobile (480px - 768px) */
+@media (max-width: 768px) {
+  .header {
+    height: 110px;
+  }
+
+  .logo {
+    width: 100px;
+    height: 38px;
+    left: 15px;
+    top: 15px;
+  }
+
+  .language-selector {
+    right: 15px;
+    top: 15px;
+  }
+
+  .language-selector img {
+    width: 40px;
+    height: 24px;
+  }
+
+  .btn-signin {
+    left: 15px;
+    top: 65px;
+    font-size: 14px;
+    min-width: 160px;
+    height: 45px;
+  }
+
+  .btn-join {
+    left: 190px;
+    top: 65px;
+    font-size: 14px;
+    min-width: 130px;
+    height: 45px;
+  }
+
+  .hero-section {
+    margin-top: 110px;
+    height: 500px;
+  }
+
+  .hero-inner {
+    margin-left: 0;
+    padding: 24px;
+  }
+
+  .hero-title {
+    font-size: 60px;
+  }
+
+  .footer-column h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .footer-column a {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+
+  .footer-social {
+    gap: 15px;
+  }
+
+  .social-icon {
+    width: 45px;
+    height: 45px;
+  }
+
+  .testimonials {
+    padding: 60px 18px;
+  }
+
+  .testimonial-card {
+    max-width: 100%;
+  }
+}
+
+/* Small Mobile (up to 480px) */
+@media (max-width: 480px) {
+  .header {
+    height: 100px;
+  }
+
+  .logo {
+    width: 80px;
+    height: 30px;
+    left: 10px;
+    top: 15px;
+  }
+
+  .language-selector {
+    right: 10px;
+    top: 15px;
+  }
+
+  .btn-signin {
+    left: 10px;
+    top: 60px;
+    font-size: 12px;
+    min-width: 140px;
+    height: 40px;
+    padding: 0 12px;
+  }
+
+  .btn-join {
+    left: 160px;
+    top: 60px;
+    font-size: 12px;
+    min-width: 110px;
+    height: 40px;
+    padding: 0 12px;
+  }
+
+  .hero-section {
+    margin-top: 100px;
+    height: 450px;
+  }
+
+  .hero-inner {
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  .hero-title {
+    font-size: 44px;
+  }
+
+  .footer-column h3 {
+    font-size: 20px;
+  }
+
+  .footer-column a {
+    font-size: 16px;
+  }
+
+  .footer-social {
+    gap: 10px;
+  }
+
+  .social-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .social-icon svg {
+    width: 25px !important;
+    height: 25px !important;
+  }
+
+  .footer-copyright {
+    font-size: 14px;
+  }
+
+  .testimonials {
+    padding: 50px 12px;
+  }
+
+  .testimonial-card {
+    max-width: 100%;
+    padding: 20px 16px;
+  }
+
+  .testimonial-avatar {
+    width: 56px;
+    height: 56px;
+    flex: 0 0 56px;
+  }
+}
+
+/* Additional responsive styles for other sections */
+@media (max-width: 900px) {
+  .hero-title {
+    font-size: 72px;
+  }
+
+  .hero-inner {
+    margin-left: 0;
+  }
+
+  .feature-1,
+  .feature-2,
+  .feature-3 {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 36px 0;
+  }
+
+  .container {
+    padding: 0 18px;
+  }
+
+  .hero-section {
+    height: 560px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 44px;
+  }
+
+  .testimonial-card {
+    max-width: 100%;
+  }
+}

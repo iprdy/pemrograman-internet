@@ -1,0 +1,177 @@
+/* ============ TOKENS (GANTI DI SINI jika perlu) ============ */
+:root {
+  --font: "Solway", serif;
+
+  --c-text: #1a1a1a;
+  --c-muted: #6b6b6b;
+  --c-bg: #ffffff;
+
+  --c-accent: #e15814; /* oranye brand (footer) */
+  --c-teal: #45c4b5; /* warna teks "Upcoming Feature" */
+  --container: 1120px;
+}
+
+/* ============ BASE ============ */
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+}
+body {
+  font-family: var(--font);
+  color: var(--c-text);
+  background: #fff;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ============ HEADER ============ */
+.cw-header {
+  background: #fff;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.03);
+}
+.cw-header__inner {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cw-logo img {
+  height: 36px;
+} /* GANTI DI SINI: tinggi logo */
+.cw-lang {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--c-muted);
+  font-size: 14px;
+}
+.cw-lang img {
+  height: 16px;
+}
+.cw-caret {
+  font-size: 12px;
+  line-height: 1;
+}
+
+/* ============ HERO ============ */
+.cw-hero {
+  margin: 0;
+}
+.cw-hero img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* ============ COMING SOON ============ */
+.cw-coming {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 40px 16px 24px;
+  text-align: center;
+}
+.cw-coming h1 {
+  margin: 0;
+  font-weight: 800;
+  line-height: 1.25;
+  font-size: clamp(28px, 5vw, 56px);
+  color: var(--c-teal); /* GANTI DI SINI */
+}
+.cw-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 18px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  border: 2px solid var(--c-accent);
+  color: var(--c-accent);
+  font-weight: 700;
+}
+
+/* ============ FOOTER ============ */
+.cw-footer {
+  background: var(--c-accent);
+  color: #fff;
+  margin-top: 24px;
+  padding: clamp(28px, 5vw, 48px) 16px 18px;
+}
+.cw-footer__cols {
+  max-width: var(--container);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.cw-footcol__title {
+  margin: 0 0 10px;
+  font-size: clamp(16px, 2.2vw, 20px);
+  font-weight: 800;
+}
+.cw-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.cw-list li + li {
+  margin-top: 8px;
+}
+.cw-list a {
+  color: #fff;
+  opacity: 0.95;
+}
+.cw-list a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+.cw-list .is-active {
+  text-decoration: underline;
+}
+
+.cw-footer__social {
+  max-width: var(--container);
+  margin: 22px auto 10px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.cw-footer__social a {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+}
+.cw-footer__social img {
+  width: 18px;
+  height: 18px;
+  filter: brightness(0) invert(1);
+}
+.cw-footer__copy {
+  max-width: var(--container);
+  margin: 8px auto 0;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.35);
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.95;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 900px) {
+  .cw-header__inner {
+    gap: 12px;
+  }
+}

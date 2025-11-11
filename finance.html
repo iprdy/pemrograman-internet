@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Finance — uRoam</title>
+
+    <!-- GANTI DI SINI (font bila perlu) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Solway:wght@300;400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/finance.css" />
+  </head>
+  <body class="fi">
+    <!-- ===== Header (konsisten dengan halaman lain) ===== -->
+    <header class="fi-header">
+      <div class="fi-header__inner">
+        <!-- GANTI DI SINI: path logo -->
+        <a href="home.html" class="fi-logo" aria-label="Home">
+          <img src="assets/icons/logo.svg" alt="uRoam" />
+        </a>
+
+        <nav class="fi-nav" aria-label="Primary">
+          <a href="home.html">Home</a>
+          <a href="bookings.html">Bookings</a>
+          <a href="performances.html">Performances</a>
+          <a class="is-active" href="finance.html">Finance</a>
+        </nav>
+
+        <!-- Language -->
+        <a href="#" class="fi-lang" aria-label="Change language">
+          <img src="assets/icons/flag-us.svg" alt="EN" /><span class="fi-caret"
+            >▾</span
+          >
+        </a>
+
+        <!-- User dropdown tanpa JS -->
+        <details class="fi-user">
+          <summary>
+            <!-- GANTI DI SINI: avatar & nama -->
+            <img src="assets/img/avatar.jpg" alt="" />
+            <span>Hary Susila</span>
+          </summary>
+          <ul class="fi-user__menu">
+            <li><a href="#">Company Profile</a></li>
+            <li><a href="#">Account Settings</a></li>
+            <li><a href="#">Change Password</a></li>
+            <li><a href="login.html">Logout</a></li>
+          </ul>
+        </details>
+      </div>
+    </header>
+
+    <main class="fi-main">
+      <!-- Garis oranye tipis di bawah nav dibuat via CSS (::before) -->
+
+      <section class="fi-wrap">
+        <h1 class="fi-title">Finance</h1>
+
+        <div class="fi-showing">Showing 1 to 4 of 4 entries</div>
+
+        <div class="fi-tablewrap">
+          <table class="fi-table">
+            <thead>
+              <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Invoice</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- ROW 1 -->
+              <tr>
+                <td>Monday, November 3rd, 2025</td>
+                <td class="fi-invoice">
+                  <p>GIS-00071522</p>
+                </td>
+                <td>IDR 901,430.00</td>
+                <td>
+                  <span class="badge badge--progress">Payment in progres</span>
+                </td>
+              </tr>
+
+              <!-- ROW 2 -->
+              <tr>
+                <td>Thursday, October 2nd, 2025</td>
+                <td class="fi-invoice">
+                  <p>GIS-00025253</p>
+                </td>
+                <td>IDR 2,982,200.00</td>
+                <td>
+                  <span class="badge badge--progress">Payment in progres</span>
+                </td>
+              </tr>
+
+              <!-- ROW 3 -->
+              <tr>
+                <td>Tuesday, September 16th, 2025</td>
+                <td class="fi-invoice">
+                  <p>GIS-00055172</p>
+                </td>
+                <td>IDR 5,024,282.00</td>
+                <td><span class="badge badge--paid">Paid</span></td>
+              </tr>
+
+              <!-- ROW 4 -->
+              <tr>
+                <td>Monday, September 1st, 2025</td>
+                <td class="fi-invoice">
+                  <p>GIS-00071548</p>
+                </td>
+                <td>IDR 3,383,266</td>
+                <td><span class="badge badge--paid">Paid</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pagination (statis) -->
+        <nav class="fi-pagination" aria-label="Pagination">
+          <button class="pg" type="button" aria-disabled="true">&laquo;</button>
+          <button class="pg" type="button" aria-disabled="true">
+            &lt;&lt;
+          </button>
+          <button class="pg is-active" type="button" aria-current="page">
+            1
+          </button>
+          <button class="pg" type="button">2</button>
+          <span class="pg dots">…</span>
+          <button class="pg" type="button">4</button>
+          <button class="pg" type="button">&gt;&gt;</button>
+          <button class="pg" type="button">&raquo;</button>
+        </nav>
+      </section>
+
+      <!-- ===== Footer ===== -->
+      <footer class="fi-footer">
+        <div class="fi-footer__cols">
+          <section class="fi-footcol">
+            <h2 class="fi-footcol__title">Supplier Support</h2>
+            <ul class="fi-list">
+              <li><a href="#">Contact</a></li>
+              <!-- GANTI DI SINI -->
+              <li><a href="#">FAQs</a></li>
+              <!-- GANTI DI SINI -->
+            </ul>
+          </section>
+
+          <section class="fi-footcol">
+            <h2 class="fi-footcol__title">About Us</h2>
+            <ul class="fi-list">
+              <li><a href="#">About uroam</a></li>
+              <!-- GANTI DI SINI -->
+              <li><a href="#">Customer Website</a></li>
+              <!-- GANTI DI SINI -->
+            </ul>
+          </section>
+
+          <section class="fi-footcol">
+            <h2 class="fi-footcol__title">Legal</h2>
+            <ul class="fi-list">
+              <li><a href="#">Privacy Policy</a></li>
+              <!-- GANTI DI SINI -->
+              <li><a href="#">Supplier Terms and Conditions</a></li>
+              <!-- GANTI DI SINI -->
+            </ul>
+          </section>
+        </div>
+
+        <div class="fi-footer__social">
+          <!-- GANTI DI SINI: ikon & tautan -->
+          <a href="#" aria-label="Instagram"
+            ><img src="assets/icons/ig.svg" alt=""
+          /></a>
+          <a href="#" aria-label="TikTok"
+            ><img src="assets/icons/tiktok.svg" alt=""
+          /></a>
+          <a href="#" aria-label="LinkedIn"
+            ><img src="assets/icons/linkedin.svg" alt=""
+          /></a>
+          <a href="#" aria-label="Facebook"
+            ><img src="assets/icons/fb.svg" alt=""
+          /></a>
+        </div>
+
+        <div class="fi-footer__copy">©2025 uroam</div>
+      </footer>
+    </main>
+  </body>
+</html>

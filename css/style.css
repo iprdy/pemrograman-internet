@@ -1,0 +1,177 @@
+/* ============================================
+   GLOBAL BASE STYLE
+   ============================================ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: "Solway", serif;
+  background: #fff;
+  color: #111;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page-wrapper {
+  position: relative;
+  padding-top: 80px;
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ============================================
+   NAVBAR (HEADER)
+   ============================================ */
+.header {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1920px;
+  height: 80px;
+  background: #ffffff;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 92px;
+}
+
+.header a {
+  display: inline-block;
+  line-height: 0;
+}
+
+.header .logo {
+  display: block;
+  width: 120px;
+  height: auto;
+  object-fit: contain;
+}
+
+.language-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 96px;
+  height: 43px;
+  cursor: pointer;
+}
+
+.language-selector img {
+  width: 54px;
+  height: 28.2px;
+  object-fit: contain;
+}
+
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  background: #e15814;
+  color: #fff;
+  padding: 48px 16px 24px;
+}
+
+.footer-columns-wrapper {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 48px;
+  align-items: start;
+}
+
+.footer-column h3 {
+  font-weight: 700;
+  font-size: clamp(22px, 2.2vw, 28px);
+  margin-bottom: 16px;
+}
+
+.footer-column a {
+  display: block;
+  font-size: clamp(16px, 1.7vw, 20px);
+  color: #fff;
+  text-decoration: none;
+  margin: 10px 0;
+  opacity: 0.95;
+}
+.footer-column a:hover {
+  text-decoration: underline;
+  opacity: 1;
+}
+
+.footer-social {
+  max-width: 1240px;
+  margin: 28px auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+}
+
+.social-icon {
+  width: 56px;
+  height: 56px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+.social-icon:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.footer-divider {
+  max-width: 1240px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.45);
+  margin: 28px auto 0;
+}
+
+.footer-copyright {
+  text-align: center;
+  font-weight: 400;
+  font-size: 16px;
+  margin-top: 14px;
+  opacity: 0.95;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+/* Tablet and Mobile adjustments for Navbar & Footer */
+@media (max-width: 1200px) {
+  .footer-columns-wrapper {
+    gap: 24px;
+  }
+  .footer-social {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}

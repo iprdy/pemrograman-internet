@@ -1,0 +1,356 @@
+/* =========================
+   TOKENS
+   ========================= */
+:root {
+  --font: "Solway", serif;
+
+  --c-text: #1a1a1a;
+  --c-muted: #6b6b6b;
+  --c-bg: #ffffff;
+
+  --c-accent: #e15814; /* oranye: nav-underline & footer */
+  --c-line: #e8e8e8;
+
+  --c-paid-bg: #cbefd7; /* badge Paid */
+  --c-paid-tx: #1f6b3f;
+  --c-prog-bg: #fce4c8; /* badge Payment in progress */
+  --c-prog-tx: #7a4b12;
+
+  --container: 1120px;
+  --radius: 12px;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+/* =========================
+     BASE
+     ========================= */
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+}
+body {
+  font-family: var(--font);
+  color: var(--c-text);
+  background: #fff;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* =========================
+     HEADER
+     ========================= */
+.fi-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #fff;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.03);
+}
+.fi-header__inner {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding: 12px 16px;
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  gap: 16px;
+}
+.fi-logo img {
+  height: 36px;
+} /* GANTI DI SINI */
+.fi-nav {
+  display: flex;
+  gap: 22px;
+}
+.fi-nav a {
+  padding: 10px 2px;
+  border-bottom: 3px solid transparent;
+  font-weight: 700;
+}
+.fi-nav a.is-active {
+  border-color: var(--c-accent);
+  color: var(--c-accent);
+}
+.fi-lang {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--c-muted);
+  font-size: 14px;
+}
+.fi-lang img {
+  height: 16px;
+}
+.fi-caret {
+  font-size: 12px;
+  line-height: 1;
+}
+.fi-user {
+  position: relative;
+}
+.fi-user > summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+.fi-user > summary::-webkit-details-marker {
+  display: none;
+}
+.fi-user img {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  object-fit: cover;
+}
+.fi-user__menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  min-width: 200px;
+  background: #fff;
+  border: 1px solid var(--c-line);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 8px 0;
+}
+.fi-user__menu a {
+  display: block;
+  padding: 10px 14px;
+}
+.fi-user__menu a:hover {
+  background: #f7f7f7;
+}
+
+/* Garis oranye tipis setelah nav */
+.fi-main::before {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--c-accent);
+}
+
+/* =========================
+     CONTENT
+     ========================= */
+.fi-wrap {
+  max-width: var(--container);
+  margin: 20px auto 0;
+  padding: 0 16px 40px;
+}
+.fi-title {
+  margin: 0 0 16px;
+  font-size: clamp(24px, 3.6vw, 32px);
+}
+.fi-showing {
+  font-size: 14px;
+  color: var(--c-muted);
+  margin: 6px 0 10px;
+}
+
+/* Table */
+.fi-tablewrap {
+  border: 1px solid var(--c-line);
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+}
+.fi-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.fi-table th,
+.fi-table td {
+  padding: 14px 12px;
+  border-bottom: 1px solid var(--c-line);
+  vertical-align: middle;
+}
+.fi-table thead th {
+  background: #fafafa;
+  text-align: left;
+  font-weight: 700;
+}
+.fi-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.fi-invoice {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.fi-invoice img {
+  width: 16px;
+  height: 16px;
+  opacity: 0.7;
+}
+.fi-invoice a {
+  color: #1677c5;
+  text-decoration: underline;
+} /* GANTI DI SINI: warna link */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 14px;
+}
+.badge--paid {
+  background: var(--c-paid-bg);
+  color: var(--c-paid-tx);
+}
+.badge--progress {
+  background: var(--c-prog-bg);
+  color: var(--c-prog-tx);
+}
+
+/* Pagination */
+.fi-pagination {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  justify-content: center;
+  margin: 16px 0 0;
+}
+.pg {
+  min-width: 36px;
+  height: 36px;
+  padding: 0 10px;
+  border: 1px solid var(--c-line);
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+}
+.pg.is-active {
+  background: #333;
+  color: #fff;
+  border-color: #333;
+}
+.pg[aria-disabled="true"] {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.pg.dots {
+  border: none;
+  background: transparent;
+  cursor: default;
+  padding: 0;
+  min-width: auto;
+}
+
+/* =========================
+     FOOTER
+     ========================= */
+.fi-footer {
+  background: var(--c-accent);
+  color: #fff;
+  margin-top: 40px;
+  padding: clamp(28px, 5vw, 48px) 16px 18px;
+}
+.fi-footer__cols {
+  max-width: var(--container);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.fi-footcol__title {
+  margin: 0 0 10px;
+  font-size: clamp(16px, 2.2vw, 20px);
+  font-weight: 800;
+}
+.fi-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.fi-list li + li {
+  margin-top: 8px;
+}
+.fi-list a {
+  color: #fff;
+  opacity: 0.95;
+}
+.fi-list a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+.fi-footer__social {
+  max-width: var(--container);
+  margin: 22px auto 10px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.fi-footer__social a {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+}
+.fi-footer__social img {
+  width: 18px;
+  height: 18px;
+  filter: brightness(0) invert(1);
+}
+.fi-footer__copy {
+  max-width: var(--container);
+  margin: 8px auto 0;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.35);
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.95;
+}
+
+/* =========================
+     RESPONSIVE
+     ========================= */
+@media (max-width: 900px) {
+  .fi-header__inner {
+    grid-template-columns: auto 1fr auto;
+  }
+  .fi-lang {
+    display: none;
+  }
+}
+@media (max-width: 680px) {
+  .fi-table thead {
+    display: none;
+  }
+  .fi-table tbody tr {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 10px 0;
+  }
+  .fi-table td {
+    border-bottom: none;
+  }
+  .fi-table tbody tr + tr {
+    border-top: 1px solid var(--c-line);
+  }
+  .fi-table td::before {
+    content: attr(data-label);
+    display: block;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 4px;
+  }
+  /* Tambahkan data-label via HTML jika mau mode mobile seperti ini */
+}

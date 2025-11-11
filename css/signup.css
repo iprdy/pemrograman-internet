@@ -1,0 +1,224 @@
+/* =========================
+   VARIABEL GLOBAL
+   ========================= */
+/* GANTI DI SINI (LEBAR FRAME/CONTAINER):
+   Sesuaikan dengan width frame Figma (mis. 1440 → container 760–960 untuk form). */
+:root {
+  --container: 760px; /* width card/form */
+  --page-pad: 24px; /* padding kiri/kanan halaman */
+  --corner-xl: 28px; /* radius sudut card besar */
+  --corner-md: 16px; /* radius input/button */
+
+  /* GANTI DI SINI (WARNA UTAMA/AKSEN) sesuai Figma */
+  --c-text: #1a1a1a;
+  --c-muted: #6b6b6b;
+  --c-bg: #ffffff;
+  --c-primary: #11d4c8; /* turquoise */
+  --c-accent: #e15814; /* orange (border input & asterisk) */
+  --c-input-bg: #f6d6c8; /* peach muda (isi input) */
+  --c-input-bd: #e9a88f; /* peach tua (garis input) */
+
+  /* GANTI DI SINI (FONT): nama harus sama dengan link Google Fonts di HTML */
+  --font-family: "Solway", serif;
+
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+/* =========================
+     BASE
+     ========================= */
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+}
+body {
+  font-family: var(--font-family);
+  color: var(--c-text);
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* =========================
+     LAYOUT
+     ========================= */
+.page {
+  min-height: 100svh;
+  padding: clamp(24px, 4vw, 48px) var(--page-pad);
+  display: grid;
+  place-items: start center;
+  background: #fff; /* GANTI DI SINI: jika butuh background gradient halaman */
+}
+.card {
+  width: 100%;
+  max-width: var(--container);
+  background: var(--c-bg);
+  border-radius: var(--corner-xl);
+  box-shadow: var(--shadow-card);
+  padding: clamp(24px, 4.5vw, 48px);
+  border: 1px solid #e9e9e9;
+}
+.title {
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.2;
+  margin: 0 0 24px;
+  text-align: center;
+}
+
+/* =========================
+     FORM
+     ========================= */
+.form {
+  display: grid;
+  gap: 24px;
+}
+.label {
+  font-weight: 700;
+  font-size: clamp(18px, 2.2vw, 24px);
+  margin: 0 0 8px;
+}
+.req {
+  color: var(--c-accent);
+}
+.sublabel {
+  display: block;
+  font-size: 14px;
+  color: var(--c-muted);
+  margin: 0 0 6px;
+}
+
+/* input */
+.input {
+  width: 100%;
+  padding: 16px 18px;
+  border-radius: var(--corner-md);
+  border: 2px solid var(--c-input-bd);
+  background: var(--c-input-bg);
+  outline: none;
+  font-size: 16px;
+}
+.input:focus {
+  border-color: var(--c-accent);
+  box-shadow: 0 0 0 3px rgba(225, 88, 20, 0.15);
+}
+
+/* fieldset */
+.fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+.row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* rules list (password hints) */
+.rules {
+  list-style: none;
+  padding: 10px 0 0 0;
+  margin: 0;
+  color: var(--c-muted);
+  font-size: 14px;
+}
+.rules li {
+  position: relative;
+  padding-left: 22px;
+  margin: 6px 0 0;
+}
+.rules li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--c-accent);
+  font-weight: 700;
+}
+
+/* terms */
+.check {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 15px;
+}
+.check input {
+  width: 22px;
+  height: 22px;
+  accent-color: var(--c-text); /* GANTI DI SINI: warna kotak ceklis */
+}
+.check a {
+  color: #1677c5; /* GANTI DI SINI: warna link legal */
+  text-decoration: underline;
+}
+
+/* alt link */
+.alt {
+  text-align: center;
+  color: var(--c-muted);
+  margin: 4px 0 -8px;
+}
+.alt .link {
+  color: #1677c5; /* GANTI DI SINI: warna link login */
+  font-weight: 700;
+}
+
+/* actions */
+.actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  margin-top: 8px;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 14px 22px;
+  font-weight: 700;
+  font-size: 16px;
+  transition: 0.2s ease;
+}
+.btn--ghost {
+  color: var(--c-accent);
+}
+.btn--primary {
+  color: #fff;
+  background: var(--c-accent);
+  min-width: 240px; /* GANTI DI SINI: lebar tombol "Create an account" */
+  border: 2px solid var(--c-accent);
+}
+.btn--primary:hover {
+  filter: brightness(0.95);
+}
+
+/* =========================
+     RESPONSIVE
+     ========================= */
+@media (max-width: 720px) {
+  .row-2 {
+    grid-template-columns: 1fr;
+  }
+  .actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+  .btn--primary {
+    min-width: unset;
+    width: 100%;
+  }
+}

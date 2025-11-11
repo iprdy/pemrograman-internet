@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Performances — Customer Review</title>
+
+    <!-- GANTI DI SINI (font bila perlu) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Solway:wght@300;400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/performances.css" />
+  </head>
+  <body class="pf">
+    <!-- Header -->
+    <header class="pf-header">
+      <div class="pf-header__inner">
+        <a href="home.html" class="pf-logo" aria-label="Home">
+          <img src="assets/icons/logo.svg" alt="uRoam" /><!-- GANTI DI SINI -->
+        </a>
+
+        <nav class="pf-nav" aria-label="Primary">
+          <a href="home.html">Home</a>
+          <a href="bookings.html">Bookings</a>
+          <a class="is-active" href="performances.html">Performances</a>
+          <a href="finance.html">Finance</a>
+        </nav>
+
+        <a href="#" class="pf-lang" aria-label="Change language">
+          <img src="assets/icons/flag-us.svg" alt="EN" /><span class="pf-caret"
+            >▾</span
+          >
+        </a>
+
+        <details class="pf-user">
+          <summary>
+            <img src="assets/img/avatar.jpg" alt="" /><span>Hary Susila</span>
+            <!-- GANTI DI SINI -->
+          </summary>
+          <ul class="pf-user__menu">
+            <li><a href="#">Company Profile</a></li>
+            <li><a href="#">Account Settings</a></li>
+            <li><a href="#">Change Password</a></li>
+            <li><a href="login.html">Logout</a></li>
+          </ul>
+        </details>
+      </div>
+    </header>
+
+    <main class="pf-main">
+      <!-- garis oranye dibuat di CSS (::before) -->
+      <section class="pf-wrap">
+        <h1 class="pf-title">Customer Review</h1>
+
+        <!-- ===== Review item 1 ===== -->
+        <article class="rv">
+          <header class="rv-head">
+            <div class="rv-left">
+              <img class="rv-ava" src="assets/img/cust-dana.jpg" alt="" />
+              <!-- GANTI DI SINI -->
+              <div class="rv-meta">
+                <div class="rv-stars" aria-label="5 out of 5">
+                  <!-- 5 bintang terisi -->
+                  <span class="star is-on"></span
+                  ><span class="star is-on"></span>
+                  <span class="star is-on"></span
+                  ><span class="star is-on"></span>
+                  <span class="star is-on"></span>
+                </div>
+                <div class="rv-name">Dana</div>
+              </div>
+            </div>
+            <div class="rv-right">
+              <div class="rv-country">— <span>United States</span></div>
+              <time class="rv-date">Nov 4, 2025</time>
+            </div>
+          </header>
+
+          <p class="rv-text">
+            Herry was great! Very attentive and had great customer service, took
+            me everywhere on our itinerary safely and waited patiently so I can
+            enjoy my time!
+          </p>
+
+          <footer class="rv-foot">
+            <div class="rv-product">
+              <img src="assets/icons/tour.svg" alt="" aria-hidden="true" />
+              <span
+                >Bali: ATV, Coffee Plantation, Temple & Monkey Forest Tour</span
+              >
+            </div>
+            <div class="rv-traveldate">
+              Travel Date: <time>Nov 2, 2025</time>
+            </div>
+          </footer>
+        </article>
+
+        <!-- ===== Review item 2 (tanpa teks ulasan) ===== -->
+        <article class="rv">
+          <header class="rv-head">
+            <div class="rv-left">
+              <img class="rv-ava" src="assets/img/cust-cherry.jpg" alt="" />
+              <div class="rv-meta">
+                <div class="rv-stars" aria-label="2 out of 5">
+                  <span class="star is-on"></span
+                  ><span class="star is-on"></span> <span class="star"></span
+                  ><span class="star"></span><span class="star"></span>
+                </div>
+                <div class="rv-name">Cherry</div>
+              </div>
+            </div>
+            <div class="rv-right">
+              <div class="rv-country">— <span>Swiss</span></div>
+              <time class="rv-date">Nov 3, 2025</time>
+            </div>
+          </header>
+
+          <!-- tanpa .rv-text agar opsional -->
+
+          <footer class="rv-foot">
+            <div class="rv-product">
+              <img src="assets/icons/tour.svg" alt="" aria-hidden="true" />
+              <span
+                >Bali: Ulun Danu, Waterfalls, Handara Gate, Coffee Planta
+                Tour</span
+              >
+            </div>
+            <div class="rv-traveldate">
+              Travel Date: <time>Nov 5, 2025</time>
+            </div>
+          </footer>
+        </article>
+
+        <!-- ===== Review item 3 ===== -->
+        <article class="rv">
+          <header class="rv-head">
+            <div class="rv-left">
+              <img class="rv-ava" src="assets/img/cust-luis.jpg" alt="" />
+              <div class="rv-meta">
+                <div class="rv-stars" aria-label="5 out of 5">
+                  <span class="star is-on"></span
+                  ><span class="star is-on"></span>
+                  <span class="star is-on"></span
+                  ><span class="star is-on"></span>
+                  <span class="star is-on"></span>
+                </div>
+                <div class="rv-name">Luis</div>
+              </div>
+            </div>
+            <div class="rv-right">
+              <div class="rv-country">— <span>Australia</span></div>
+              <time class="rv-date">Oct 16, 2025</time>
+            </div>
+          </header>
+
+          <p class="rv-text">
+            I'm a solo traveler from Colombia... Guide Wayan Agus very kind,
+            informative and knowledgeable. Clearly explained about Balinese
+            culture and custom. Highly recommended!
+          </p>
+
+          <footer class="rv-foot">
+            <div class="rv-product">
+              <img src="assets/icons/tour.svg" alt="" aria-hidden="true" />
+              <span
+                >Bali: ATV, Coffee Plantation, Temple & Monkey Forest Tour</span
+              >
+            </div>
+            <div class="rv-traveldate">
+              Travel Date: <time>Sep 25, 2025</time>
+            </div>
+          </footer>
+        </article>
+
+        <!-- ===== Review item 4 ===== -->
+        <article class="rv">
+          <header class="rv-head">
+            <div class="rv-left">
+              <img class="rv-ava" src="assets/img/cust-gill.jpg" alt="" />
+              <div class="rv-meta">
+                <div class="rv-stars" aria-label="4 out of 5">
+                  <span class="star is-on"></span
+                  ><span class="star is-on"></span>
+                  <span class="star is-on"></span
+                  ><span class="star is-on"></span>
+                  <span class="star"></span>
+                </div>
+                <div class="rv-name">Gill</div>
+              </div>
+            </div>
+            <div class="rv-right">
+              <div class="rv-country">— <span>Spain</span></div>
+              <time class="rv-date">Oct 28, 2025</time>
+            </div>
+          </header>
+
+          <footer class="rv-foot">
+            <div class="rv-product">
+              <img src="assets/icons/tour.svg" alt="" aria-hidden="true" />
+              <span
+                >Bali: ATV, Coffee Plantation, Temple & Monkey Forest Tour</span
+              >
+            </div>
+            <div class="rv-traveldate">
+              Travel Date: <time>Oct 15, 2025</time>
+            </div>
+          </footer>
+        </article>
+      </section>
+
+      <!-- Footer -->
+      <footer class="pf-footer">
+        <div class="pf-footer__cols">
+          <section class="pf-footcol">
+            <h2 class="pf-footcol__title">Supplier Support</h2>
+            <ul class="pf-list">
+              <li><a href="#">Contact</a></li>
+              <!-- GANTI DI SINI -->
+              <li><a href="#">FAQs</a></li>
+            </ul>
+          </section>
+
+          <section class="pf-footcol">
+            <h2 class="pf-footcol__title">About Us</h2>
+            <ul class="pf-list">
+              <li><a href="#">About uroam</a></li>
+              <li><a href="customer-website.html">Customer Website</a></li>
+            </ul>
+          </section>
+
+          <section class="pf-footcol">
+            <h2 class="pf-footcol__title">Legal</h2>
+            <ul class="pf-list">
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Supplier Terms and Conditions</a></li>
+            </ul>
+          </section>
+        </div>
+
+        <div class="pf-footer__social">
+          <a href="#" aria-label="Instagram"
+            ><img src="assets/icons/ig.svg" alt=""
+          /></a>
+          <a href="#" aria-label="TikTok"
+            ><img src="assets/icons/tiktok.svg" alt=""
+          /></a>
+          <a href="#" aria-label="LinkedIn"
+            ><img src="assets/icons/linkedin.svg" alt=""
+          /></a>
+          <a href="#" aria-label="Facebook"
+            ><img src="assets/icons/fb.svg" alt=""
+          /></a>
+        </div>
+
+        <div class="pf-footer__copy">©2025 uroam</div>
+      </footer>
+    </main>
+  </body>
+</html>

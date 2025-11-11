@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Create New Product — uRoam</title>
+
+    <!-- GANTI DI SINI (font jika perlu) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Solway:wght@300;400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/create-product.css" />
+  </head>
+  <body class="cp">
+    <!-- HEADER (sama pola dengan halaman Home) -->
+    <header class="cp-header">
+      <div class="cp-header__inner">
+        <!-- GANTI DI SINI: path logo -->
+        <a href="home.html" class="cp-logo" aria-label="Home">
+          <img src="assets/icons/logo.svg" alt="uRoam" />
+        </a>
+
+        <nav class="cp-nav" aria-label="Primary">
+          <a class="is-active" href="home.html">Home</a>
+          <a href="#">Bookings</a>
+          <a href="#">Performances</a>
+          <a href="#">Finance</a>
+        </nav>
+
+        <a href="#" class="cp-lang" aria-label="Change language">
+          <img src="assets/icons/flag-us.svg" alt="EN" /><span class="cp-caret"
+            >▾</span
+          >
+        </a>
+
+        <!-- User dropdown tanpa JS -->
+        <details class="cp-user">
+          <summary>
+            <!-- GANTI DI SINI: avatar/nama -->
+            <img src="assets/img/avatar.jpg" alt="" />
+            <span>Hary Susila</span>
+          </summary>
+          <ul class="cp-user__menu">
+            <li><a href="#">Company Profile</a></li>
+            <li><a href="#">Account Settings</a></li>
+            <li><a href="#">Change Password</a></li>
+            <li><a href="login.html">Logout</a></li>
+          </ul>
+        </details>
+      </div>
+    </header>
+
+    <main class="cp-main">
+      <!-- area garis oranye tipis ada di CSS -->
+      <section class="cp-formwrap">
+        <h1 class="cp-title">New Product</h1>
+
+        <form
+          class="cp-form"
+          action="#"
+          method="post"
+          enctype="multipart/form-data"
+          novalidate
+        >
+          <!-- Language -->
+          <div class="cp-field">
+            <label class="cp-label" for="lang">Language</label>
+            <!-- GANTI DI SINI: opsi bahasa -->
+            <select id="lang" name="lang" class="cp-select">
+              <option value="id" selected>Indonesia</option>
+              <option value="en">English</option>
+              <option value="es">Spanish</option>
+            </select>
+          </div>
+
+          <!-- Title -->
+          <div class="cp-field">
+            <div class="cp-labelrow">
+              <label class="cp-label" for="title">Title</label>
+              <small class="cp-hint">max 60</small>
+              <!-- static info, tanpa JS -->
+            </div>
+            <input
+              id="title"
+              name="title"
+              type="text"
+              maxlength="60"
+              required
+              class="cp-input"
+            />
+          </div>
+
+          <!-- Full Description -->
+          <div class="cp-field">
+            <div class="cp-labelrow">
+              <label class="cp-label" for="desc">Full Description</label>
+              <small class="cp-hint">max 3000</small>
+            </div>
+            <textarea
+              id="desc"
+              name="desc"
+              rows="10"
+              maxlength="3000"
+              required
+              class="cp-textarea"
+            ></textarea>
+          </div>
+
+          <!-- Include -->
+          <div class="cp-field">
+            <label class="cp-label" for="include">Include</label>
+            <textarea
+              id="include"
+              name="include"
+              rows="5"
+              class="cp-textarea"
+            ></textarea>
+          </div>
+
+          <!-- Exclude -->
+          <div class="cp-field">
+            <label class="cp-label" for="exclude">Exclude</label>
+            <textarea
+              id="exclude"
+              name="exclude"
+              rows="5"
+              class="cp-textarea"
+            ></textarea>
+          </div>
+
+          <!-- Keywords -->
+          <div class="cp-field">
+            <label class="cp-label" for="keywords">Keywords</label>
+            <!-- GANTI DI SINI: placeholder -->
+            <input
+              id="keywords"
+              name="keywords"
+              type="text"
+              class="cp-input"
+              placeholder="e.g., temple, waterfall, ATV"
+            />
+          </div>
+
+          <!-- Price per Person -->
+          <div class="cp-field cp-price">
+            <label class="cp-label">Price</label>
+            <div class="cp-price__row">
+              <!-- GANTI DI SINI: jika perlu ganti currency -->
+              <select
+                class="cp-chip cp-select--chip"
+                name="currency"
+                aria-label="Currency"
+              >
+                <option selected>IDR</option>
+                <option>USD</option>
+                <option>EUR</option>
+              </select>
+
+              <!-- amount -->
+              <input
+                type="number"
+                name="amount"
+                class="cp-input cp-input--price"
+                min="0"
+                step="1000"
+                placeholder="0"
+                aria-label="Amount"
+              />
+
+              <select
+                class="cp-chip cp-select--chip"
+                name="unit"
+                aria-label="Unit"
+              >
+                <option selected>Person</option>
+                <option>Group</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Photos -->
+          <div class="cp-field">
+            <label class="cp-label">Photos</label>
+
+            <div class="cp-uploadrow">
+              <label class="cp-upload">
+                <!-- GANTI DI SINI: accept bila perlu -->
+                <input
+                  type="file"
+                  name="photos"
+                  accept="image/*"
+                  multiple
+                  class="cp-upload__input"
+                />
+                <div class="cp-upload__box">
+                  <img
+                    src="assets/icons/upload.svg"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                  <span>Upload Photos</span>
+                </div>
+              </label>
+
+              <p class="cp-note">
+                Images help customers visualize joining your activity and can
+                manage expectations about crowds, group size, vehicle types, and
+                more. You need at least 4.
+              </p>
+            </div>
+
+            <!-- Placeholder grid slot foto (visual saja, tanpa JS) -->
+            <div class="cp-ph-grid" aria-hidden="true">
+              <div class="slot"></div>
+              <div class="slot"></div>
+              <div class="slot"></div>
+              <div class="slot"></div>
+              <div class="slot"></div>
+              <div class="slot"></div>
+            </div>
+            <!-- Catatan: input bisa menerima >4 file & <=6 (tanpa JS tidak bisa validasi min/max) -->
+            <!-- GANTI DI SINI: tambahkan atribut data jika nanti mau dipakai JS, mis. data-min="4" data-max="6" -->
+          </div>
+
+          <!-- Aksi -->
+          <div class="cp-actions">
+            <!-- GANTI DI SINI: href cancel -->
+            <a href="home.html" class="cp-btn cp-btn--ghost">Cancel</a>
+            <button type="submit" class="cp-btn cp-btn--primary">
+              Save Product
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- FOOTER (oranye) -->
+      <footer class="cp-footer">
+        <div class="cp-footer__cols">
+          <section class="cp-footcol">
+            <h2 class="cp-footcol__title">Supplier Support</h2>
+            <ul class="cp-list">
+              <li><a href="#">Contact</a></li>
+              <!-- GANTI DI SINI -->
+              <li><a href="#">FAQs</a></li>
+              <!-- GANTI DI SINI -->
+            </ul>
+          </section>
+
+          <section class="cp-footcol">
+            <h2 class="cp-footcol__title">About Us</h2>
+            <ul class="cp-list">
+              <li><a href="#">About uroam</a></li>
+              <!-- GANTI DI SINI -->
+              <li><a href="#">Customer Website</a></li>
+              <!-- GANTI DI SINI -->
+            </ul>
+          </section>
+
+          <section class="cp-footcol">
+            <h2 class="cp-footcol__title">Legal</h2>
+            <ul class="cp-list">
+              <li><a href="#">Privacy Policy</a></li>
+              <!-- GANTI DI SINI -->
+              <li><a href="#">Supplier Terms and Conditions</a></li>
+              <!-- GANTI DI SINI -->
+            </ul>
+          </section>
+        </div>
+
+        <div class="cp-footer__social">
+          <!-- GANTI DI SINI: ikon & tautan -->
+          <a href="#" aria-label="Instagram"
+            ><img src="assets/icons/ig.svg" alt=""
+          /></a>
+          <a href="#" aria-label="TikTok"
+            ><img src="assets/icons/tiktok.svg" alt=""
+          /></a>
+          <a href="#" aria-label="LinkedIn"
+            ><img src="assets/icons/linkedin.svg" alt=""
+          /></a>
+          <a href="#" aria-label="Facebook"
+            ><img src="assets/icons/fb.svg" alt=""
+          /></a>
+        </div>
+
+        <div class="cp-footer__copy">©2025 uroam</div>
+      </footer>
+    </main>
+  </body>
+</html>

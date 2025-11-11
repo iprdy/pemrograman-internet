@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Company Profile — uRoam</title>
+
+    <!-- GANTI DI SINI (font jika perlu) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Solway:wght@300;400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/company-profile.css" />
+  </head>
+  <body class="cp">
+    <!-- Header -->
+    <header class="cp-header">
+      <div class="cp-header__inner">
+        <a href="home.html" class="cp-logo" aria-label="Home">
+          <!-- GANTI DI SINI: path logo -->
+          <img src="assets/icons/logo.svg" alt="uRoam" />
+        </a>
+
+        <nav class="cp-nav" aria-label="Primary">
+          <a href="home.html">Home</a>
+          <a href="bookings.html">Bookings</a>
+          <a href="performances.html">Performances</a>
+          <a href="finance.html">Finance</a>
+        </nav>
+
+        <a href="#" class="cp-lang" aria-label="Change language">
+          <img src="assets/icons/flag-us.svg" alt="EN" /><span class="cp-caret"
+            >▾</span
+          >
+        </a>
+
+        <details class="cp-user">
+          <summary>
+            <img src="assets/img/avatar.jpg" alt="" />
+            <span>Hary Susila</span>
+            <!-- GANTI DI SINI -->
+          </summary>
+          <ul class="cp-user__menu">
+            <li>
+              <a class="is-active" href="company-profile.html"
+                >Company Profile</a
+              >
+            </li>
+            <li><a href="#">Account Settings</a></li>
+            <li><a href="change-password.html">Change Password</a></li>
+            <li><a href="login.html">Logout</a></li>
+          </ul>
+        </details>
+      </div>
+    </header>
+
+    <main class="cp-main">
+      <!-- garis oranye dibuat via CSS -->
+      <div class="cp-wrap">
+        <!-- ========== Company information ========== -->
+        <section class="card">
+          <header class="card__head">
+            <h1 class="card__title">Company information</h1>
+            <p class="card__desc">
+              The company details that allow customers to recognise your
+              business as a legal commercial entity. These will be visible to
+              customers on your Uroam activity provider profile page.
+            </p>
+          </header>
+
+          <!-- Pakai definition list agar semantik label–nilai -->
+          <dl class="rows">
+            <div class="row">
+              <dt>Legal status <span class="i">i</span></dt>
+              <dd>Registered company</dd>
+              <!-- GANTI DI SINI -->
+            </div>
+
+            <div class="row">
+              <dt>Legal company name <span class="i">i</span></dt>
+              <dd>PT Pintu Kemana Saja</dd>
+              <!-- GANTI DI SINI -->
+            </div>
+
+            <div class="row">
+              <dt>Company registration number <span class="i">i</span></dt>
+              <dd>1112223334445555666777888999000</dd>
+              <!-- GANTI DI SINI -->
+            </div>
+
+            <div class="row">
+              <dt>Address</dt>
+              <dd>
+                Address Address Address Address Address Address Address
+                Address<br />
+                Address Address Address Address Address Address Address
+                Address<br />
+                Address
+              </dd>
+              <!-- GANTI DI SINI -->
+            </div>
+
+            <div class="row">
+              <dt>Contact details</dt>
+              <dd>
+                +62 812 3123 1233<br />
+                jokowi3periode@gmail.com
+              </dd>
+              <!-- GANTI DI SINI -->
+            </div>
+
+            <div class="row">
+              <dt>Managing directors</dt>
+              <dd>Bahli Lahada</dd>
+              <!-- GANTI DI SINI -->
+            </div>
+          </dl>
+        </section>
+
+        <!-- ========== Public profile information ========== -->
+        <section class="card">
+          <header class="card__head">
+            <h2 class="card__title">Public profile information</h2>
+            <p class="card__desc">
+              The company details that allow customers to recognise your
+              business as a legal commercial entity. These will be visible to
+              customers on your Uroam activity provider profile page.
+            </p>
+          </header>
+
+          <dl class="rows">
+            <div class="row">
+              <dt>Public company name</dt>
+              <dd>Gravizy Trip</dd>
+              <!-- GANTI DI SINI -->
+            </div>
+
+            <div class="row">
+              <dt>Company description</dt>
+              <dd>
+                No matter where your travels take you, Uroam offers the best way
+                to connect with your destination…
+                <!-- GANTI DI SINI: paragraf deskripsi -->
+              </dd>
+            </div>
+
+            <div class="row row--logo">
+              <dt>Company logo</dt>
+              <dd>
+                <div class="logo-uploader">
+                  <!-- Preview statis -->
+                  <img
+                    class="logo-preview"
+                    src="assets/img/logo-preview.png"
+                    alt="Company logo"
+                  />
+                  <!-- GANTI DI SINI -->
+
+                  <!-- Upload box (tanpa JS) -->
+                  <label class="upload-box">
+                    <input
+                      type="file"
+                      name="logo"
+                      accept=".png,.jpg,.jpeg"
+                      hidden
+                    />
+                    <span class="upload-text">Upload logo</span>
+                    <span class="upload-caret">▾</span>
+                  </label>
+                </div>
+                <div class="logo-note">
+                  *.png, *.jpg files up to 4MB at least 180px x 180px
+                </div>
+              </dd>
+            </div>
+          </dl>
+        </section>
+      </div>
+
+      <!-- Footer -->
+      <footer class="cp-footer">
+        <div class="cp-footer__cols">
+          <section class="cp-footcol">
+            <h2 class="cp-footcol__title">Supplier Support</h2>
+            <ul class="cp-list">
+              <li><a href="#">Contact</a></li>
+              <!-- GANTI DI SINI -->
+              <li><a href="#">FAQs</a></li>
+            </ul>
+          </section>
+
+          <section class="cp-footcol">
+            <h2 class="cp-footcol__title">About Us</h2>
+            <ul class="cp-list">
+              <li><a href="#">About uroam</a></li>
+              <li><a href="customer-website.html">Customer Website</a></li>
+            </ul>
+          </section>
+
+          <section class="cp-footcol">
+            <h2 class="cp-footcol__title">Legal</h2>
+            <ul class="cp-list">
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Supplier Terms and Conditions</a></li>
+            </ul>
+          </section>
+        </div>
+
+        <div class="cp-footer__social">
+          <a href="#"><img src="assets/icons/ig.svg" alt="Instagram" /></a>
+          <a href="#"><img src="assets/icons/tiktok.svg" alt="TikTok" /></a>
+          <a href="#"><img src="assets/icons/linkedin.svg" alt="LinkedIn" /></a>
+          <a href="#"><img src="assets/icons/fb.svg" alt="Facebook" /></a>
+        </div>
+
+        <div class="cp-footer__copy">©2025 uroam</div>
+      </footer>
+    </main>
+  </body>
+</html>
