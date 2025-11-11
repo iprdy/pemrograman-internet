@@ -1,151 +1,71 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Log in — Supplier Portal</title>
 
-    <!-- GANTI DI SINI (FONT bila perlu) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Solway:wght@300;400;500;700;800&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Log in — Supplier Portal</title>
 
-    <link rel="stylesheet" href="css/login.css" />
-  </head>
-  <body class="lg">
-    <!-- HEADER -->
-    <header class="lg-header">
-      <div class="lg-header__inner">
-        <!-- GANTI DI SINI: path logo -->
-        <a href="/" class="lg-logo" aria-label="Home">
-          <img src="images/logo.png" alt="uRoam" />
-        </a>
+  <!-- GANTI DI SINI (FONT bila perlu) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Solway:wght@300;400;500;700;800&display=swap" rel="stylesheet" />
 
-        <!-- GANTI DI SINI: ikon bendera / language -->
-        <a href="#" class="lg-lang" aria-label="Change language">
-          <img src="images/language-selector.png" alt="EN" />
-          <span class="lg-caret">▾</span>
-        </a>
-      </div>
-    </header>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/login.css" />
+</head>
 
-    <main class="lg-main">
-      <!-- Area gradient (atur di CSS) -->
-      <section class="lg-hero">
-        <!-- Kartu form -->
-        <section class="lg-card" aria-labelledby="loginTitle">
-          <h1 id="loginTitle" class="lg-title">
-            Log in to the Supplier Portal
-          </h1>
+<body class="lg">
+  <!-- HEADER -->
+  <div id="navbar-placeholder"></div>
 
-          <form class="lg-form" action="#" method="post" novalidate>
-            <!-- Email -->
-            <div class="lg-field">
-              <label for="email" class="lg-label"
-                >Email<span aria-hidden="true" class="lg-req">*</span></label
-              >
-              <a class="lg-help" href="forgot-password.html"
-                >Forgot password?</a
-              >
-              <!-- GANTI DI SINI -->
-              <input
-                id="email"
-                name="email"
-                type="email"
-                autocomplete="username"
-                required
-                class="lg-input"
-              />
-            </div>
+  <main class="lg-main">
+    <!-- Area gradient (atur di CSS) -->
+    <section class="lg-hero">
+      <!-- Kartu form -->
+      <section class="lg-card" aria-labelledby="loginTitle">
+        <h1 id="loginTitle" class="lg-title">Log in to the Supplier Portal</h1>
 
-            <!-- Password -->
-            <div class="lg-field">
-              <label for="password" class="lg-label"
-                >Password<span aria-hidden="true" class="lg-req">*</span></label
-              >
-              <input
-                id="password"
-                name="password"
-                type="password"
-                autocomplete="current-password"
-                required
-                class="lg-input"
-              />
-            </div>
+        <form class="lg-form" action="#" method="post" novalidate>
+          <!-- Email -->
+          <div class="lg-field">
+            <label for="email" class="lg-label">
+              Email<span aria-hidden="true" class="lg-req">*</span>
+            </label>
+            <input id="email" name="email" type="email" autocomplete="username" required class="lg-input" />
+            <a class="lg-help" href="forgot-password.html">Forgot password?</a>
+          </div>
 
-            <!-- Submit -->
-            <div class="lg-actions">
-              <button type="submit" class="lg-btn lg-btn--primary">
-                <a href="home.html">Log in</a>
-              </button>
-            </div>
+          <!-- Password -->
+          <div class="lg-field">
+            <label for="password" class="lg-label">
+              Password<span aria-hidden="true" class="lg-req">*</span>
+            </label>
+            <input id="password" name="password" type="password" autocomplete="current-password" required
+              class="lg-input" />
+          </div>
 
-            <!-- Link Sign up -->
-            <p class="lg-alt">
-              Don’t have an account?
-              <a href="signup.html" class="lg-link">Sign up now</a>
-              <!-- GANTI DI SINI -->
-            </p>
-          </form>
-        </section>
+          <!-- Submit -->
+          <div class="lg-actions">
+            <button type="submit" class="lg-btn lg-btn--primary">
+              Log in
+            </button>
+          </div>
+
+          <!-- Link Sign up -->
+          <p class="lg-alt">
+            Don’t have an account?
+            <a href="signup.html" class="lg-link">Sign up now</a>
+          </p>
+        </form>
       </section>
+    </section>
 
-      <!-- FOOTER -->
-      <footer class="lg-footer">
-        <div class="lg-footer__cols">
-          <section class="lg-footcol">
-            <h2 class="lg-footcol__title">Supplier Support</h2>
-            <ul class="lg-list">
-              <li><a href="#">Contact</a></li>
-              <!-- GANTI DI SINI -->
-              <li><a href="#">FAQs</a></li>
-              <!-- GANTI DI SINI -->
-            </ul>
-          </section>
+    <!-- FOOTER -->
+    <div id="footer-placeholder"></div>
+  </main>
 
-          <section class="lg-footcol">
-            <h2 class="lg-footcol__title">About Us</h2>
-            <ul class="lg-list">
-              <li><a href="#">About uroam</a></li>
-              <!-- GANTI DI SINI -->
-              <li><a href="#">Customer Website</a></li>
-              <!-- GANTI DI SINI -->
-            </ul>
-          </section>
+  <script src="js/include.js"></script>
+</body>
 
-          <section class="lg-footcol">
-            <h2 class="lg-footcol__title">Legal</h2>
-            <ul class="lg-list">
-              <li><a href="#">Privacy Policy</a></li>
-              <!-- GANTI DI SINI -->
-              <li><a href="#">Supplier Terms and Conditions</a></li>
-              <!-- GANTI DI SINI -->
-            </ul>
-          </section>
-        </div>
-
-        <!-- Sosial -->
-        <div class="lg-footer__social">
-          <!-- GANTI DI SINI: ikon & tautan -->
-          <a href="#" aria-label="Instagram"
-            ><img src="assets/icons/ig.svg" alt=""
-          /></a>
-          <a href="#" aria-label="TikTok"
-            ><img src="assets/icons/tiktok.svg" alt=""
-          /></a>
-          <a href="#" aria-label="LinkedIn"
-            ><img src="assets/icons/linkedin.svg" alt=""
-          /></a>
-          <a href="#" aria-label="Facebook"
-            ><img src="assets/icons/fb.svg" alt=""
-          /></a>
-        </div>
-
-        <div class="lg-footer__copy">©2025 uroam</div>
-      </footer>
-    </main>
-  </body>
 </html>
