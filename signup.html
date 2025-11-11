@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Sign Up — Supplier</title>
 
-    <!-- GANTI DI SINI (FONT):
-       Jika mau ganti font, ubah link Google Fonts & nama font di CSS variable --font-family -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Solway:wght@300;400;500;700;800&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sign Up — Supplier | Uroam</title>
 
-    <link rel="stylesheet" href="css/signup.css" />
-  </head>
-  <body>
+  <!-- FONT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Solway:wght@300;400;500;700;800&display=swap" rel="stylesheet" />
+
+  <!-- GLOBAL & PAGE CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/signup.css" />
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <!-- NAVBAR -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- MAIN CONTENT -->
     <main class="page">
-      <!-- KONTENER UTAMA (card) -->
       <section class="card">
         <h1 class="title">Join us as a supply partner</h1>
 
@@ -28,14 +32,7 @@
             <label for="companyName" class="label">
               Company Legal Name<span class="req">*</span>
             </label>
-            <input
-              id="companyName"
-              name="companyName"
-              type="text"
-              required
-              autocomplete="organization"
-              class="input"
-            />
+            <input id="companyName" name="companyName" type="text" required autocomplete="organization" class="input" />
           </div>
 
           <!-- Owner -->
@@ -45,25 +42,11 @@
             <div class="row-2">
               <div class="field">
                 <label for="ownerFirst" class="sublabel">First Name</label>
-                <input
-                  id="ownerFirst"
-                  name="ownerFirst"
-                  type="text"
-                  required
-                  autocomplete="given-name"
-                  class="input"
-                />
+                <input id="ownerFirst" name="ownerFirst" type="text" required autocomplete="given-name" class="input" />
               </div>
               <div class="field">
                 <label for="ownerLast" class="sublabel">Last Name</label>
-                <input
-                  id="ownerLast"
-                  name="ownerLast"
-                  type="text"
-                  required
-                  autocomplete="family-name"
-                  class="input"
-                />
+                <input id="ownerLast" name="ownerLast" type="text" required autocomplete="family-name" class="input" />
               </div>
             </div>
           </fieldset>
@@ -73,15 +56,8 @@
             <label for="companyEmail" class="label">
               Company Email<span class="req">*</span>
             </label>
-            <input
-              id="companyEmail"
-              name="companyEmail"
-              type="email"
-              required
-              autocomplete="email"
-              inputmode="email"
-              class="input"
-            />
+            <input id="companyEmail" name="companyEmail" type="email" required autocomplete="email" inputmode="email"
+              class="input" />
           </div>
 
           <!-- Password -->
@@ -89,14 +65,7 @@
             <label for="password" class="label">
               Password<span class="req">*</span>
             </label>
-            <input
-              id="password"
-              name="password"
-              type="password"
-              required
-              autocomplete="new-password"
-              class="input"
-            />
+            <input id="password" name="password" type="password" required autocomplete="new-password" class="input" />
             <ul class="rules">
               <li>Between 8 and 30 characters</li>
               <li>Include a number (1234) and one special character (#%!.^)</li>
@@ -114,29 +83,29 @@
               Terms and conditions<span class="req">*</span>
             </legend>
             <label class="check">
-              <!-- GANTI DI SINI (KOTAK CEKLIS KUSTOM):
-                 Kalau mau pakai ikon SVG sendiri, ganti input + pseudo-element di CSS -->
               <input id="terms" name="terms" type="checkbox" required />
               <span>
                 I have read and agree to the
-                <!-- GANTI DI SINI (LINK T&C + Privacy): -->
-                <a href="#" target="_blank" rel="noopener"
-                  >Supplier Terms and Conditions</a
-                >
+                <a href="#" target="_blank" rel="noopener">
+                  Supplier Terms and Conditions
+                </a>
                 and the
-                <a href="#" target="_blank" rel="noopener">Privacy Policy</a>
+                <a href="#" target="_blank" rel="noopener">
+                  Privacy Policy
+                </a>
               </span>
             </label>
           </fieldset>
 
-          <!-- Auth links & actions -->
+          <!-- Auth Links & Actions -->
           <p class="alt">
-            Already have an account? <a href="login.html" class="link">Log in</a>
+            Already have an account?
+            <a href="login.html" class="link">Log in</a>
           </p>
 
           <div class="actions">
-            <!-- GANTI DI SINI (LINK BACK): href ke halaman sebelumnya -->
-            <a href="#" class="btn btn--ghost">Back</a>
+            <a href="index.html" class="btn btn--ghost">Back</a>
+
             <button type="submit" class="btn btn--primary">
               Create an account
             </button>
@@ -144,5 +113,13 @@
         </form>
       </section>
     </main>
-  </body>
+
+    <!-- FOOTER -->
+    <div id="footer-placeholder"></div>
+  </div>
+
+  <!-- JAVASCRIPT INCLUDE -->
+  <script src="js/include.js"></script>
+</body>
+
 </html>
