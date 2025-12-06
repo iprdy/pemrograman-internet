@@ -24,8 +24,7 @@ body {
   padding-top: 80px;
   width: 100%;
   max-width: 1920px;
-  margin: 0 auto;
-  min-height: 100vh;
+  margin: 0 auto; 
 }
 
 .container {
@@ -43,7 +42,6 @@ body {
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  max-width: 1920px;
   height: 80px;
   background: #ffffff;
   border-bottom: 3px solid rgba(0, 0, 0, 0.2);
@@ -86,7 +84,6 @@ body {
    ============================================ */
 .footer {
   width: 100%;
-  max-width: 1920px;
   margin: 0 auto;
   background: #e15814;
   color: #fff;
