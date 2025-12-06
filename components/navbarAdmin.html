@@ -1,0 +1,53 @@
+<header class="nav-admin">
+  <div class="nav-admin__inner" id="navAdminContainer">
+
+    <!-- Language Selector -->
+    <div class="nav-lang">
+      <button class="lang-btn" id="langToggle">
+        <img src="../images/icons/english.png" alt="EN">
+        <span>ENG</span>
+        <img class="caret" src="../images/icons/dropdown.svg" alt="">
+      </button>
+
+      <div class="lang-menu" id="langMenu">
+        <button class="lang-item">
+          <img src="../images/icons/indonesia.png" alt="IDN">
+          <span>IDN</span>
+        </button>
+        <button class="lang-item">
+          <img src="../images/icons/english.png" alt="ENG">
+          <span>ENG</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Profile -->
+    <div class="nav-profile">
+      <button class="profile-btn" id="profileToggle">
+        <img src="../images/avatar-1.png" alt="Avatar" class="avatar">
+        <span class="name">
+          <?= $_SESSION['admin_name'];?>
+        </span>
+        <img class="caret" src="../images/icons/dropdown.svg" alt="">
+      </button>
+
+      <div class="profile-menu" id="profileMenu">
+        <a href="account-settings.php" class="pm-item">
+          <img src="../images/icons/settings.svg" alt="">
+          <span>Account Settings</span>
+        </a>
+
+        <a href="change-password.php" class="pm-item">
+          <img src="../images/icons/lock.svg" alt="">
+          <span>Change Password</span>
+        </a>
+
+        <a href="../admin/logout.php" class="pm-item logout">
+          <img src="../images/icons/logout.svg" alt=""> 
+          <span>Logout</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</header>

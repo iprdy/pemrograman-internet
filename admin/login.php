@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $stmt = $conn->prepare("SELECT id, email, password FROM admin WHERE email = ?");
+    $stmt = $conn->prepare("SELECT id, name, email, password FROM admin WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -24,6 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             // Set session
             $_SESSION['admin_id'] = $user['id'];
+            $_SESSION['admin_name'] = $user['name'];
             $_SESSION['admin_email'] = $user['email'];
 
             // Redirect ke home
