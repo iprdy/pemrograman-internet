@@ -1,3 +1,43 @@
+<?php
+session_start();
+require '../database/connect.php';
+
+if (isset($_SESSION['admin_id'])) {
+    header("Location: home.php");
+    exit;
+}
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $stmt = $conn->prepare("SELECT id, email, password FROM admin WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows === 1) {
+        $user = $result->fetch_assoc();
+
+        // Verifikasi password (password_hash)
+        if (password_verify($password, $user['password'])) {
+
+            // Set session
+            $_SESSION['admin_id'] = $user['id'];
+            $_SESSION['admin_email'] = $user['email'];
+
+            // Redirect ke home
+            header("Location: home.php");
+            exit;
+        } else {
+            $error = "Password salah!";
+        }
+    } else {
+        $error = "Email tidak ditemukan!";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 
@@ -24,9 +64,15 @@
     <section class="lg-hero">
       <!-- Kartu form -->
       <section class="lg-card" aria-labelledby="loginTitle">
-        <h1 id="loginTitle" class="lg-title">Log in to the Supplier Portal</h1>
+        <h1 id="loginTitle" class="lg-title">Log in to the Admin Portal</h1>
 
-        <form class="lg-form" action="#" method="post" novalidate>
+        <?php if (!empty($error)): ?>
+          <div class="lg-alert">
+            <?= $error ?>
+          </div>
+        <?php endif; ?>
+
+        <form class="lg-form" action="login.php" method="post">
           <!-- Email -->
           <div class="lg-field">
             <label for="email" class="lg-label">
@@ -57,7 +103,5 @@
     <!-- FOOTER -->
     <?php include '../components/footer.html'; ?>
   </main>
-
   </body>
-
 </html>
