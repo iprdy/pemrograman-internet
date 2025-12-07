@@ -22,8 +22,8 @@
 
   --container: 1140px;
 
-  --radius-lg: 28px; /* match login.css card radius */
-  --radius-md: 14px; /* match login.css input radius */
+  --radius-lg: 10px; /* match login.css card radius */
+  --radius-md: 5px; /* match login.css input radius */
   --shadow: 0 12px 36px rgba(0, 0, 0, 0.08); /* match login.css shadow */
 }
 
@@ -50,7 +50,6 @@ img {
   max-width: 100%;
 }
 a {
-  text-decoration: none;
   color: inherit;
 }
 
@@ -65,14 +64,14 @@ a {
 }
 
 .hm-hero {
-  padding: 16px 0 48px;
+  padding: 16px 0 16px;
 }
 
 .hm-toolbar {
-  max-width: var(--container);
   margin: 0 auto;
-  margin-left: 200px;
-  padding: 12px 16px 22px;
+  margin-left: 50px;
+  margin-right: 50px;
+  padding: 12px 16px 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -153,10 +152,10 @@ a {
 /* =========================
      TABLE LIST
      ========================= */
-.hm-list {
-  max-width: var(--container);
+.hm-list {  
   margin: 16px auto 0;
-  margin-left: 200px;
+  margin-left: 50px;
+  margin-right: 50px;
   padding: 0 16px;
 }
 .hm-table {
@@ -172,10 +171,6 @@ a {
   padding: 12px 14px;
   border-bottom: 1px solid var(--c-line);
   font-weight: 700;
-}
-.sort {
-  opacity: 0.45;
-  margin-left: 6px;
 }
 
 .hm-row {

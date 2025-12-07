@@ -27,6 +27,7 @@ if (!isset($_SESSION['admin_id'])) {
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/sidebarAdmin.css" />
     <link rel="stylesheet" href="../css/navbarAdmin.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
     <link rel="stylesheet" href="../css/home.css" />
   </head>
 
@@ -38,7 +39,6 @@ if (!isset($_SESSION['admin_id'])) {
     <?php include '../components/navbarAdmin.html'; ?>
 
     <div id="content-wrapper">
-
       <main class="hm-main">
         <!-- HERO AREA -->
         <section class="hm-hero">
@@ -86,24 +86,24 @@ if (!isset($_SESSION['admin_id'])) {
   
             <div class="hm-table">
               <div class="hm-thead">
-                <div class="col-product">Product <span class="sort">↕</span></div>
-                <div class="col-ref">Reference code <span class="sort">↕</span></div>
-                <div class="col-status">Status <span class="sort">↕</span></div>
+                <div class="col-product">Product</div>
+                <div class="col-ref">Reference code</span></div>
+                <div class="col-status">Status  </span></div>
                 <div class="col-action">Action</div>
               </div>
   
               <!-- ROW 1 -->
               <article class="hm-row">
                 <div class="col-product">
-                  <img class="thumb" src="images/feature-image-1.png" alt="" />
+                  <img class="thumb" src="../images/feature-image-1.png" alt="" />
                   <div class="meta">
                     <a href="#" class="title">Bali: ATV, Coffee Plantation, Temple & Monkey Forest Tour</a>
                     <div class="rating">
-                      <img src="assets/icons/star-empty.svg" alt="">
-                      <img src="assets/icons/star-empty.svg" alt="">
-                      <img src="assets/icons/star-empty.svg" alt="">
-                      <img src="assets/icons/star-empty.svg" alt="">
-                      <img src="assets/icons/star-empty.svg" alt="">
+                      <img src="../images/icons/star-gray.svg" alt="">
+                      <img src="../images/icons/star-gray.svg" alt="">
+                      <img src="../images/icons/star-gray.svg" alt="">
+                      <img src="../images/icons/star-gray.svg" alt="">
+                      <img src="../images/icons/star-gray.svg" alt="">
                     </div>
                   </div>
                 </div>
@@ -122,15 +122,15 @@ if (!isset($_SESSION['admin_id'])) {
               <!-- ROW 2 -->
               <article class="hm-row">
                 <div class="col-product">
-                  <img class="thumb" src="images/feature-image-2.png" alt="" />
+                  <img class="thumb" src="../images/feature-image-2.png" alt="" />
                   <div class="meta">
                     <a href="#" class="title">Bali: ATV, Coffee Plantation, Temple & Monkey Forest Tour</a>
                     <div class="rating">
-                      <img src="assets/icons/star-empty.svg" alt="">
-                      <img src="assets/icons/star-empty.svg" alt="">
-                      <img src="assets/icons/star-empty.svg" alt="">
-                      <img src="assets/icons/star-empty.svg" alt="">
-                      <img src="assets/icons/star-empty.svg" alt="">
+                      <img src="../images/icons/star-gray.svg" alt="">
+                      <img src="../images/icons/star-gray.svg" alt="">
+                      <img src="../images/icons/star-gray.svg" alt="">
+                      <img src="../images/icons/star-gray.svg" alt="">
+                      <img src="../images/icons/star-gray.svg" alt="">
                     </div>
                   </div>
                 </div>
@@ -149,15 +149,15 @@ if (!isset($_SESSION['admin_id'])) {
               <!-- ROW 3 -->
               <article class="hm-row">
                 <div class="col-product">
-                  <img class="thumb" src="images/feature-image-3.png" alt="" />
+                  <img class="thumb" src="../images/feature-image-3.png" alt="" />
                   <div class="meta">
                     <a href="#" class="title">Bali: ATV, Coffee Plantation, Temple & Monkey Forest Tour</a>
                     <div class="rating">
-                      <img src="assets/icons/star-empty.svg" alt="">
-                      <img src="assets/icons/star-empty.svg" alt="">
-                      <img src="assets/icons/star-empty.svg" alt="">
-                      <img src="assets/icons/star-empty.svg" alt="">
-                      <img src="assets/icons/star-empty.svg" alt="">
+                      <img src="../images/icons/star-gray.svg" alt="">
+                      <img src="../images/icons/star-gray.svg" alt="">
+                      <img src="../images/icons/star-gray.svg" alt="">
+                      <img src="../images/icons/star-gray.svg" alt="">
+                      <img src="../images/icons/star-gray.svg" alt="">
                     </div>
                   </div>
                 </div>
@@ -177,10 +177,11 @@ if (!isset($_SESSION['admin_id'])) {
           </section>
         </section>
   
-        <!-- FOOTER (insert, not modify content) -->
-        <?php include '../components/footer.html'; ?>
       </main>
     </div>
+
+    <!-- FOOTER (insert, not modify content) -->
+    <?php include '../components/footer.html'; ?>
 
     <!-- SR-only -->
     <style>

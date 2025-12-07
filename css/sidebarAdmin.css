@@ -18,7 +18,7 @@
 
 .sidebar.collapsed {
   width: 70px; /* collapsed */
-  padding: 20px 10px;
+  padding: 20px;
 }
 
 /* FLOATING LOGO */
@@ -51,22 +51,34 @@
   display: flex;
   align-items: center;
   gap: 14px;
-  font-size: 18px;
+  font-size: 14px;
   color: #2c2c2c;
   text-decoration: none;
   font-weight: 500;
-  transition: gap 0.3s ease;
+  transition: gap 1s ease;
 }
 
-.sidebar.collapsed .sidebar-item span {
-  opacity: 0;
-  width: 0;
+.sidebar-item:hover span {
+  font-weight: 600;
+}
+
+.sidebar-text {
+  display: inline-block;
+  width: 130px;      /* FIXED — ikon tidak akan bergerak */
+  white-space: nowrap;
   overflow: hidden;
+  font-weight: 400;
+  transition: opacity 0.25s ease;
+}
+
+.sidebar.collapsed .sidebar-text {
+  opacity: 0;
 }
 
 .sidebar-icon {
   width: 22px;
   height: 22px;
+  flex-shrink: 0;
   object-fit: contain;
   filter: brightness(0) saturate(100%) invert(42%) sepia(77%) 
           saturate(1629%) hue-rotate(342deg) brightness(94%) contrast(97%);
@@ -86,6 +98,11 @@
 .sidebar-hamburger img {
   width: 28px;
   height: 28px;
+  transition: transform 0.3s ease;
+}
+
+.sidebar-hamburger.rotated img {
+  transform: rotate(90deg);
 }
 
 /* CONTENT SHIFT */
@@ -103,11 +120,18 @@
   transition: transform 0.28s ease;
 }
 
-.push-expanded {
-  transform: translateX(260px);
+/* Content wrapper shift*/
+#content-wrapper {
+  transition: margin-left 0.28s ease;
+  margin-right: 100px;
 }
 
-.push-collapsed {
-  transform: translateX(70px);
+/* When sidebar is expanded */
+.content-expanded {
+  margin-left: calc(260px + 50px);
 }
 
+/* When sidebar is collapsed */
+.content-collapsed {
+  margin-left: calc(70px + 50px);
+}

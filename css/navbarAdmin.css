@@ -12,7 +12,7 @@
 .nav-admin__inner {
   height: 68px;
   max-width: 1480px;
-  margin: 0 auto;
+  margin: 0 100px 0 auto;
   padding: 0 24px;
 
   display: flex;
@@ -84,6 +84,11 @@
   background: #f7f7f7;
 }
 
+.nav-lang span {
+  font-family: "Solway", serif;
+  font-weight: 500;
+}
+
 /* ============================
    PROFILE DROPDOWN
    ============================ */
@@ -147,6 +152,11 @@
 
 .pm-item.logout img {
   filter: brightness(0) saturate(100%) invert(43%) sepia(83%) saturate(1424%) hue-rotate(358deg) brightness(96%) contrast(93%);
+}
+
+.nav-profile .name {
+  font-family: "Solway", serif;
+  font-weight: 500;
 }
 
 /* ============================
