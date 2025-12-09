@@ -32,9 +32,20 @@ if (isset($_POST['delete_id'])) {
         unlink($idata['itinerary_file']);
     }
 
-    $conn->query("DELETE FROM product_photos WHERE product_id = $product_id");
-    $conn->query("DELETE FROM product_prices WHERE product_id = $product_id");
-    $conn->query("DELETE FROM products WHERE id = $product_id");
+    $stmt = $conn->prepare("DELETE FROM product_photos WHERE product_id = ?");
+    $stmt->bind_param("i", $product_id);
+    $stmt->execute();
+    $stmt->close();
+
+    $stmt = $conn->prepare("DELETE FROM product_prices WHERE product_id = ?");
+    $stmt->bind_param("i", $product_id);
+    $stmt->execute();
+    $stmt->close();
+
+    $stmt = $conn->prepare("DELETE FROM products WHERE id = ?");
+    $stmt->bind_param("i", $product_id);
+    $stmt->execute();
+    $stmt->close();
 
     header("Location: home.php?deleted=1");
     exit;
@@ -157,7 +168,7 @@ $products = $conn->query($query);
                   <!-- Action buttons -->
                   <div class="col-action">
                       <a href="edit-product.php?id=<?= $row['id'] ?>" class="btn btn--outline-primary">Edit</a>
-                      <a href="#modal-delete" class="btn btn--outline-danger" onclick="setDeleteId(<?= $row['id'] ?>)">Delete</a>
+                      <button type="button" class="btn btn--outline-danger" onclick="openDeleteModal(<?= $row['id'] ?>)">Delete</button>
                   </div>
 
                 </article>
@@ -173,24 +184,9 @@ $products = $conn->query($query);
     <!-- FOOTER (insert, not modify content) -->
     <?php include '../components/footer.html'; ?>
 
-    <!-- SR-only -->
-    <style>
-      .sr-only {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0,0,0,0);
-        white-space: nowrap;
-        border: 0;
-      }
-    </style>
-
     <!-- MODAL DELETE -->
     <div id="modal-delete" class="md">
-      <a href="#" class="md__overlay"></a>
+      <a href="#" class="md__overlay" onclick="closeDeleteModal()"></a>
 
       <section class="md__card" role="dialog" aria-modal="true">
         <a href="#" class="md__close">✕</a>
@@ -216,8 +212,13 @@ $products = $conn->query($query);
     <script src="../js/sidebarAdmin.js"></script>
     <script src="../js/navbarAdmin.js"></script>
     <script>
-      function setDeleteId(id) {
+      function openDeleteModal(id) {
           document.getElementById('delete_id').value = id;
+          document.getElementById('modal-delete').classList.add('show');
+      }
+      
+      function closeDeleteModal() {
+          document.getElementById('modal-delete').classList.remove('show');
       }
     </script>
 

@@ -362,9 +362,17 @@ a {
   color: #fff;
   background: var(--md-danger);
   border: 2px solid var(--md-danger-bd);
+  cursor: pointer;
 }
 .md-btn--danger:hover {
   filter: brightness(0.96);
+}
+
+.md {
+    display: none;
+}
+.md.show {
+    display: block;
 }
 
 @media (max-width: 420px) {
