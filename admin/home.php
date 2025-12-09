@@ -1,11 +1,53 @@
 <?php
 session_start();
 
+require '../database/connect.php';
+
 // Jika user belum login, arahkan ke login
 if (!isset($_SESSION['admin_id'])) {
     header("Location: ../auth/login.php");
     exit;
 }
+
+if (isset($_POST['delete_id'])) {
+
+    $product_id = intval($_POST['delete_id']);
+
+    $photos = $conn->prepare("SELECT photo_path FROM product_photos WHERE product_id = ?");
+    $photos->bind_param("i", $product_id);
+    $photos->execute();
+    $result = $photos->get_result();
+    while ($p = $result->fetch_assoc()) {
+        if (file_exists($p['photo_path'])) unlink($p['photo_path']);
+    }
+    $photos->close();
+
+    $it = $conn->prepare("SELECT itinerary_file FROM products WHERE id = ?");
+    $it->bind_param("i", $product_id);
+    $it->execute();
+    $idata = $it->get_result()->fetch_assoc();
+    $it->close();
+
+    if (!empty($idata['itinerary_file']) && file_exists($idata['itinerary_file'])) {
+        unlink($idata['itinerary_file']);
+    }
+
+    $conn->query("DELETE FROM product_photos WHERE product_id = $product_id");
+    $conn->query("DELETE FROM product_prices WHERE product_id = $product_id");
+    $conn->query("DELETE FROM products WHERE id = $product_id");
+
+    header("Location: home.php?deleted=1");
+    exit;
+}
+
+$query = "
+    SELECT p.id, p.title, p.reference_code,
+        (SELECT photo_path FROM product_photos WHERE product_id = p.id LIMIT 1) AS thumb
+    FROM products p
+    ORDER BY p.id DESC
+";
+
+$products = $conn->query($query);
 ?>
 
 <!DOCTYPE html>
@@ -51,7 +93,7 @@ if (!isset($_SESSION['admin_id'])) {
                 <span>Filter by Product</span>
                 <div class="hm-input-icon">
                   <input type="search" placeholder="Search" />
-                  <img src="assets/icons/search.svg" alt="" aria-hidden="true" />
+                  <img src="../images/icons/search.svg" alt="" aria-hidden="true" />
                 </div>
               </label>
   
@@ -90,79 +132,37 @@ if (!isset($_SESSION['admin_id'])) {
                 <div class="col-ref">Reference code</span></div>
                 <div class="col-action">Action</div>
               </div>
-  
-              <!-- ROW 1 -->
-              <article class="hm-row">
-                <div class="col-product">
-                  <img class="thumb" src="../images/feature-image-1.png" alt="" />
-                  <div class="meta">
-                    <a href="#" class="title">Bali: ATV, Coffee Plantation, Temple & Monkey Forest Tour</a>
-                    <div class="rating">
-                      <img src="../images/icons/star-gray.svg" alt="">
-                      <img src="../images/icons/star-gray.svg" alt="">
-                      <img src="../images/icons/star-gray.svg" alt="">
-                      <img src="../images/icons/star-gray.svg" alt="">
-                      <img src="../images/icons/star-gray.svg" alt="">
-                    </div>
+
+              <?php while ($row = $products->fetch_assoc()): ?>
+                <article class="hm-row">
+
+                  <!-- Product column -->
+                  <div class="col-product">
+                      <img class="thumb" 
+                          src="<?= $row['thumb'] ? $row['thumb'] : '../images/no-photo.svg' ?>" 
+                          alt="Thumbnail">
+
+                      <div class="meta">
+                          <a href="edit-product.php?id=<?= $row['id'] ?>" class="title">
+                              <?= ($row['title']) ?>
+                          </a>
+                      </div>
                   </div>
-                </div>
-  
-                <div class="col-ref">FR_Gianyar TripD</div>
-                
-                <div class="col-action">
-                  <a href="#modal-edit" class="btn btn--outline-primary">Edit</a>
-                  <a href="#modal-delete" class="btn btn--outline-danger">Delete</a>
-                </div>
-              </article>
-  
-              <!-- ROW 2 -->
-              <article class="hm-row">
-                <div class="col-product">
-                  <img class="thumb" src="../images/feature-image-2.png" alt="" />
-                  <div class="meta">
-                    <a href="#" class="title">Bali: ATV, Coffee Plantation, Temple & Monkey Forest Tour</a>
-                    <div class="rating">
-                      <img src="../images/icons/star-gray.svg" alt="">
-                      <img src="../images/icons/star-gray.svg" alt="">
-                      <img src="../images/icons/star-gray.svg" alt="">
-                      <img src="../images/icons/star-gray.svg" alt="">
-                      <img src="../images/icons/star-gray.svg" alt="">
-                    </div>
+
+                  <!-- Reference code -->
+                  <div class="col-ref">
+                      <?= ($row['reference_code']) ?>
                   </div>
-                </div>
-  
-                <div class="col-ref">FR_Gianyar TripA</div>
-  
-                <div class="col-action">
-                  <a href="#modal-edit" class="btn btn--outline-primary">Edit</a>
-                  <a href="#modal-delete" class="btn btn--outline-danger">Delete</a>
-                </div>
-              </article>
-  
-              <!-- ROW 3 -->
-              <article class="hm-row">
-                <div class="col-product">
-                  <img class="thumb" src="../images/feature-image-3.png" alt="" />
-                  <div class="meta">
-                    <a href="#" class="title">Bali: ATV, Coffee Plantation, Temple & Monkey Forest Tour</a>
-                    <div class="rating">
-                      <img src="../images/icons/star-gray.svg" alt="">
-                      <img src="../images/icons/star-gray.svg" alt="">
-                      <img src="../images/icons/star-gray.svg" alt="">
-                      <img src="../images/icons/star-gray.svg" alt="">
-                      <img src="../images/icons/star-gray.svg" alt="">
-                    </div>
+
+                  <!-- Action buttons -->
+                  <div class="col-action">
+                      <a href="edit-product.php?id=<?= $row['id'] ?>" class="btn btn--outline-primary">Edit</a>
+                      <a href="#modal-delete" class="btn btn--outline-danger" onclick="setDeleteId(<?= $row['id'] ?>)">Delete</a>
                   </div>
-                </div>
-  
-                <div class="col-ref">FR_Gianyar TripB</div>
-  
-                <div class="col-action">
-                  <a href="#modal-edit" class="btn btn--outline-primary">Edit</a>
-                  <a href="#modal-delete" class="btn btn--outline-danger">Delete</a>
-                </div>
-              </article>
-  
+
+                </article>
+              <?php endwhile; ?>
+
             </div>
           </section>
         </section>
@@ -201,14 +201,25 @@ if (!isset($_SESSION['admin_id'])) {
           This action cannot be undone.
         </p>
 
-        <div class="md__actions">
-          <a href="#" class="md-btn md-btn--ghost">Cancel</a>
-          <a href="delete-product.html" class="md-btn md-btn--danger">Delete</a>
-        </div>
+        <form method="POST">
+          <input type="hidden" id="delete_id" name="delete_id">
+
+          <div class="md__actions">
+            <a href="#" class="md-btn md-btn--ghost">Cancel</a>
+            <button type="submit" class="md-btn md-btn--danger">Delete</button>
+          </div>
+        </form>
+
       </section>
     </div>
 
     <script src="../js/sidebarAdmin.js"></script>
     <script src="../js/navbarAdmin.js"></script>
+    <script>
+      function setDeleteId(id) {
+          document.getElementById('delete_id').value = id;
+      }
+    </script>
+
   </body>
 </html>
