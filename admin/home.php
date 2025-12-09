@@ -72,7 +72,7 @@ if (!isset($_SESSION['admin_id'])) {
             </div>
   
             <!-- Create new product -->
-            <a class="hm-create" href="create-product.html">
+            <a class="hm-create" href="create-product.php">
               <svg class="hm-create-icon" fill="#1677c5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path d="M5,12H19M12,5V19" stroke="#1677c5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
@@ -88,7 +88,6 @@ if (!isset($_SESSION['admin_id'])) {
               <div class="hm-thead">
                 <div class="col-product">Product</div>
                 <div class="col-ref">Reference code</span></div>
-                <div class="col-status">Status  </span></div>
                 <div class="col-action">Action</div>
               </div>
   
@@ -109,12 +108,9 @@ if (!isset($_SESSION['admin_id'])) {
                 </div>
   
                 <div class="col-ref">FR_Gianyar TripD</div>
-  
-                <div class="col-status">
-                  <span class="badge badge--reject">Rejected</span>
-                </div>
-  
+                
                 <div class="col-action">
+                  <a href="#modal-edit" class="btn btn--outline-primary">Edit</a>
                   <a href="#modal-delete" class="btn btn--outline-danger">Delete</a>
                 </div>
               </article>
@@ -137,12 +133,9 @@ if (!isset($_SESSION['admin_id'])) {
   
                 <div class="col-ref">FR_Gianyar TripA</div>
   
-                <div class="col-status">
-                  <span class="badge badge--ok">Bookable</span>
-                </div>
-  
                 <div class="col-action">
-                  <a href="#" class="btn btn--outline">Details</a>
+                  <a href="#modal-edit" class="btn btn--outline-primary">Edit</a>
+                  <a href="#modal-delete" class="btn btn--outline-danger">Delete</a>
                 </div>
               </article>
   
@@ -164,12 +157,9 @@ if (!isset($_SESSION['admin_id'])) {
   
                 <div class="col-ref">FR_Gianyar TripB</div>
   
-                <div class="col-status">
-                  <span class="badge badge--ok">Bookable</span>
-                </div>
-  
                 <div class="col-action">
-                  <a href="#" class="btn btn--outline">Details</a>
+                  <a href="#modal-edit" class="btn btn--outline-primary">Edit</a>
+                  <a href="#modal-delete" class="btn btn--outline-danger">Delete</a>
                 </div>
               </article>
   

@@ -1,15 +1,5 @@
-const langToggle = document.getElementById("langToggle");
-const langMenu = document.getElementById("langMenu");
-
 const profileToggle = document.getElementById("profileToggle");
 const profileMenu = document.getElementById("profileMenu");
-
-// Toggle language dropdown
-langToggle.onclick = (e) => {
-  e.stopPropagation();
-  langMenu.style.display = langMenu.style.display === "block" ? "none" : "block";
-  profileMenu.style.display = "none";
-};
 
 // Toggle profile dropdown
 profileToggle.onclick = (e) => {
