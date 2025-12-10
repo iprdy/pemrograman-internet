@@ -26,7 +26,7 @@ body.hrm, body.hm, body {
 ============================= */
 
 .bk-filters {
-    width: 260px;
+    /* width: 260px; */
     background: #ffffff;
     padding: 20px;
     border-radius: 12px;

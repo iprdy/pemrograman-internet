@@ -109,7 +109,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <!-- GLOBAL LAYOUT -->
     <link rel="stylesheet" href="../css/sidebarAdmin.css">
     <link rel="stylesheet" href="../css/navbarAdmin.css">
-    <link rel="stylesheet" href="../css/footer.css">
 
     <!-- PAGE-ONLY CSS -->
     <link rel="stylesheet" href="../css/create-product.css">
@@ -130,9 +129,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             <form class="cp-grid" method="POST" action="create-product.php" enctype="multipart/form-data">
             
-                <!-- =======================
-                     LEFT COLUMN (dalam card)
-                ======================== -->
+            
+                <!-- LEFT COLUMN -->
                 <div class="cp-card cp-left">
             
                     <div class="cp-field">
@@ -164,9 +162,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     </div>
                 </div> <!-- END LEFT CARD -->
 
-                <!-- =======================
-                    OPTION CARD (NEW)
-                ======================== -->
+                <!-- OPTION CARD (NEW) -->
                 <div class="cp-card cp-option-card">
 
                     <h2 class="cp-opt-title">Option</h2>
@@ -177,9 +173,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         <input type="number" name="duration_days" min="1" class="cp-input cp-duration">
                     </div>
 
-                    <!-- =======================
-                        PRIVATE CATEGORY
-                    ======================== -->
+                    <!-- PRIVATE CATEGORY -->
                     <div class="cp-option-block">
                         <h3 class="cp-opt-subtitle">Customer Category Private</h3>
 
@@ -200,9 +194,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         </div>
                     </div>
 
-                    <!-- =======================
-                        GROUP CATEGORY
-                    ======================== -->
+                    <!-- GROUP CATEGORY -->
                     <div class="cp-option-block">
                         <h3 class="cp-opt-subtitle">Customer Category Group</h3>
 
@@ -225,9 +217,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                 </div>
             
-                <!-- =======================
-                     RIGHT COLUMN (dalam card)
-                ======================== -->
+                <!-- RIGHT COLUMN -->
                 <div class="cp-card cp-right">
             
                     <div class="cp-field">
@@ -236,10 +226,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             <input type="file" id="itineraryInput" name="itinerary" accept="application/pdf">
                             <div class="cp-upload-box">
                                 <img src="../images/icons/upload.svg" alt="">
-                                <span>Upload Itinerary File</span>
+                                <span>Upload Itinerary File (pdf)</span>
                             </div>
-                            <p id="itineraryStatus" class="cp-note"></p>
                         </label>
+                        
+                        <p id="itineraryStatus" class="cp-note"></p>
 
                         <label class="cp-label">Photos</label>
             
@@ -276,9 +267,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             </form>
         </main>
     </div>
-
-    <!-- FOOTER -->
-    <?php include '../components/footer.html'; ?>
 
     <!-- JS -->
     <script src="../js/sidebarAdmin.js"></script>

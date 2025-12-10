@@ -184,7 +184,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <!-- GLOBAL LAYOUT -->
     <link rel="stylesheet" href="../css/sidebarAdmin.css">
     <link rel="stylesheet" href="../css/navbarAdmin.css">
-    <link rel="stylesheet" href="../css/footer.css">
 
     <!-- PAGE CSS -->
     <link rel="stylesheet" href="../css/create-product.css">
@@ -369,8 +368,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 </main>
 </div>
-
-<?php include '../components/footer.html'; ?>
 
 <script src="../js/sidebarAdmin.js"></script>
 <script src="../js/navbarAdmin.js"></script>

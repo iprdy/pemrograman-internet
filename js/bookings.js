@@ -1,31 +1,40 @@
 function toggleProductDropdown() {
-    const dropdown = document.getElementById('productDropdown');
-    const btn = document.querySelector('.bk-select');
+    const dropdown = document.getElementById("productDropdown");
+    const btn = document.querySelector(".bk-select");
     const rect = btn.getBoundingClientRect();
 
     dropdown.style.left = rect.left + "px";
-    dropdown.style.top = (rect.bottom + 5) + "px";
+    dropdown.style.top = rect.bottom + 5 + "px";
 
     dropdown.style.display =
-        (dropdown.style.display === "block") ? "none" : "block";
+        dropdown.style.display === "block" ? "none" : "block";
 }
 
+// CLOSE DROPDOWN WHEN CLICK OUTSIDE
 document.addEventListener("click", function (e) {
     const panel = document.getElementById("productDropdown");
     const button = document.querySelector(".bk-select");
+
     if (!panel.contains(e.target) && !button.contains(e.target)) {
         panel.style.display = "none";
-    }   
+    }
 });
 
 function filterProducts() {
     let input = document.getElementById("productSearch").value.toLowerCase();
     let items = document.querySelectorAll("#productList .bk-product-item");
+
     items.forEach(item => {
         let text = item.innerText.toLowerCase();
         item.style.display = text.includes(input) ? "flex" : "none";
     });
 }
+
+document.querySelectorAll("#productList input[type='checkbox']").forEach(cb => {
+    cb.addEventListener("change", () => {
+        document.getElementById("filterForm").submit();
+    });
+});
 
 document.querySelectorAll(".bk-detail-btn").forEach(btn => {
     btn.addEventListener("click", function () {
@@ -48,18 +57,16 @@ document.querySelectorAll(".bk-detail-btn").forEach(btn => {
 document.querySelectorAll(".bk-cancel-btn").forEach(btn => {
     btn.addEventListener("click", function () {
 
-        const detailBox = this.parentElement.nextElementSibling;     // .bk-detail-box
-        const cancelBox = detailBox.nextElementSibling;              // .bk-cancel-box
+        const detailBox = this.parentElement.nextElementSibling; // .bk-detail-box
+        const cancelBox = detailBox.nextElementSibling;          // .bk-cancel-box
 
         detailBox.style.display = "none";
 
-        cancelBox.style.display = (cancelBox.style.display === "block")
-            ? "none"
-            : "block";
+        cancelBox.style.display =
+            cancelBox.style.display === "block" ? "none" : "block";
     });
 });
 
-// SHOW/HIDE CLEAR BUTTONS + CLEAR LOGIC
 document.querySelectorAll(".bk-date-block").forEach(block => {
 
     const start = block.querySelector(".start-date");
@@ -67,21 +74,22 @@ document.querySelectorAll(".bk-date-block").forEach(block => {
     const clearBtn = block.querySelector(".bk-clear");
 
     function updateClearVisibility() {
-        if (start.value || end.value) {
-            clearBtn.style.display = "block";
-        } else {
-            clearBtn.style.display = "none";
-        }
+        clearBtn.style.display = (start.value || end.value) ? "block" : "none";
     }
 
-    // Saat user mengubah tanggal → cek lagi
-    start.addEventListener("change", updateClearVisibility);
-    end.addEventListener("change", updateClearVisibility);
+    // submit filter on change
+    function autoSubmit() {
+        document.getElementById("filterForm").submit();
+    }
 
-    // Logika tombol CLEAR
+    start.addEventListener("change", () => { updateClearVisibility(); autoSubmit(); });
+    end.addEventListener("change", () => { updateClearVisibility(); autoSubmit(); });
+
+    // clear button resets date & auto-submit
     clearBtn.addEventListener("click", () => {
         start.value = "";
         end.value = "";
         updateClearVisibility();
+        autoSubmit();
     });
 });

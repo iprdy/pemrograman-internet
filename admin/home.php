@@ -81,6 +81,18 @@ if (isset($_POST['delete_id'])) {
     header("Location: home.php?deleted=1");
     exit;
 }
+
+$countQuery = "SELECT COUNT(*) AS total FROM products p $search";
+$stmtCount = $conn->prepare($countQuery);
+
+if (!empty($search)) {
+    $stmtCount->bind_param("s", $param);
+}
+
+$stmtCount->execute();
+$countResult = $stmtCount->get_result()->fetch_assoc();
+$totalProducts = $countResult['total'];
+
 ?>
 
 <!DOCTYPE html>
@@ -102,7 +114,6 @@ if (isset($_POST['delete_id'])) {
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/sidebarAdmin.css" />
     <link rel="stylesheet" href="../css/navbarAdmin.css" />
-    <link rel="stylesheet" href="../css/footer.css" />
     <link rel="stylesheet" href="../css/home.css" />
   </head>
 
@@ -132,7 +143,9 @@ if (isset($_POST['delete_id'])) {
                 </div>
               </label>
   
-              <div class="hm-result-hint">Showing 1 – 10 out of 12 and more</div>
+              <div class="hm-result-hint">
+                Showing <?= $totalProducts ?> products
+            </div>
             </div>
   
             <!-- Create new product -->
@@ -191,9 +204,6 @@ if (isset($_POST['delete_id'])) {
   
       </main>
     </div>
-
-    <!-- FOOTER (insert, not modify content) -->
-    <?php include '../components/footer.html'; ?>
 
     <!-- MODAL DELETE -->
     <div id="modal-delete" class="md">
