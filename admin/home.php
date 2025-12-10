@@ -1,18 +1,47 @@
 <?php
 session_start();
 
-require '../database/connect.php';
-
 // Jika user belum login, arahkan ke login
 if (!isset($_SESSION['admin_id'])) {
     header("Location: ../auth/login.php");
     exit;
 }
 
+require '../database/connect.php';
+
+// SEARCH FILTER
+$search = "";
+$param = "";
+
+if (!empty($_GET['q'])) {
+    $search = "WHERE p.title LIKE ?";
+    $param = "%" . $_GET['q'] . "%";
+}
+
+// QUERY PRODUK (SEARCH)
+$query = "
+    SELECT p.id, p.title, p.reference_code,
+        (SELECT photo_path FROM product_photos WHERE product_id = p.id LIMIT 1) AS thumb
+    FROM products p
+    $search
+    ORDER BY p.id DESC
+";
+
+$stmt = $conn->prepare($query);
+
+if (!empty($search)) {
+    $stmt->bind_param("s", $param);
+}
+
+$stmt->execute();
+$products = $stmt->get_result();
+
+// DELETE PRODUCT
 if (isset($_POST['delete_id'])) {
 
     $product_id = intval($_POST['delete_id']);
 
+    // Delete photos from storage
     $photos = $conn->prepare("SELECT photo_path FROM product_photos WHERE product_id = ?");
     $photos->bind_param("i", $product_id);
     $photos->execute();
@@ -22,6 +51,7 @@ if (isset($_POST['delete_id'])) {
     }
     $photos->close();
 
+    // Delete itinerary file
     $it = $conn->prepare("SELECT itinerary_file FROM products WHERE id = ?");
     $it->bind_param("i", $product_id);
     $it->execute();
@@ -32,6 +62,7 @@ if (isset($_POST['delete_id'])) {
         unlink($idata['itinerary_file']);
     }
 
+    // Delete from DB
     $stmt = $conn->prepare("DELETE FROM product_photos WHERE product_id = ?");
     $stmt->bind_param("i", $product_id);
     $stmt->execute();
@@ -50,15 +81,6 @@ if (isset($_POST['delete_id'])) {
     header("Location: home.php?deleted=1");
     exit;
 }
-
-$query = "
-    SELECT p.id, p.title, p.reference_code,
-        (SELECT photo_path FROM product_photos WHERE product_id = p.id LIMIT 1) AS thumb
-    FROM products p
-    ORDER BY p.id DESC
-";
-
-$products = $conn->query($query);
 ?>
 
 <!DOCTYPE html>
@@ -103,21 +125,10 @@ $products = $conn->query($query);
               <label class="hm-filter">
                 <span>Filter by Product</span>
                 <div class="hm-input-icon">
-                  <input type="search" placeholder="Search" />
-                  <img src="../images/icons/search.svg" alt="" aria-hidden="true" />
-                </div>
-              </label>
-  
-              <!-- Filter by Status -->
-              <label class="hm-filter">
-                <span>Filter by Status</span>
-                <div class="hm-select">
-                  <select>
-                    <option selected>Select Status</option>
-                    <option>Bookable</option>
-                    <option>Rejected</option>
-                    <option>Pending</option>
-                  </select>
+                 <form method="GET" class="hm-search-form">
+                      <input type="search" name="q" placeholder="Search" value="<?= isset($_GET['q']) ? htmlspecialchars($_GET['q']) : '' ?>"/>
+                      <img src="../images/icons/search.svg" alt="">
+                  </form>
                 </div>
               </label>
   
