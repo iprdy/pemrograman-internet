@@ -232,17 +232,25 @@ body.sidebar-collapsed .cp-main {
 
 /* placeholder grid */
 .cp-photo-grid {
-  margin-top: 16px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);  /* 2 kolom bukan 4 */
+    gap: 12px;
 }
 
 .cp-photo-grid .slot {
-  height: 300px;
-  background: #dfdfdfff;
-  border-radius: 12px;
-  box-shadow: inset 0 0 0 6px #d9d9d9;
+    width: 100%;
+    aspect-ratio: 1 / 1;  /* atau 1/1 kalau mau kotak */
+    background: #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+}
+
+.cp-photo-grid .slot img.photo-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 /* ===================================

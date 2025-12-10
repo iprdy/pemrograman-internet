@@ -264,6 +264,7 @@ a {
 .btn--outline-danger {
   border-color: #d66f6f;
   color: #b84040;
+  font-size: 15px;
 }
 .btn--outline-danger:hover {
   background: #fff0f0;

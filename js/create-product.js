@@ -24,7 +24,6 @@ document.getElementById("photoInput").addEventListener("change", function() {
     }
 });
 
-
 document.addEventListener("DOMContentLoaded", () => {
 
     const photoInput = document.getElementById("photoInput");
